@@ -1,0 +1,57 @@
+{
+  "figure_id": "F3",
+  "stem": "fig_q2_routes",
+  "suggested_caption": "问题二运输路线（24 个架次）",
+  "section": "7.4.1",
+  "files": {
+    "script": "fig_q2_routes.py",
+    "csv": "fig_q2_routes.csv",
+    "png": "fig_q2_routes.png",
+    "svg": "fig_q2_routes.svg"
+  },
+  "size_cm": [
+    15.5,
+    11.2
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    1322
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "中文宋体（SimSun），英文与数字 Times New Roman，记号 STIX",
+  "sources": [
+    {
+      "path": "inputs/results/q2.json",
+      "sha256": "b73d4c7d7fb0025bfa59cd36c4b3b158f467cf5375a044303eaa1412819f03cc"
+    },
+    {
+      "path": "inputs/raw/无人机应急物资运输基础数据/调度中心与服务区.xlsx",
+      "sha256": "541a7af1ded08c9a3ff448480332cb5f6a54902f0afa6e9bcd50c1d2b2b34e38"
+    },
+    {
+      "path": "inputs/raw/镇龙乡地理空间数据/镇龙乡及周边地理数据/数字高程模型数据（DEM）/镇龙乡及周边30米DEM.tif",
+      "sha256": "741fe6de0b2bcaffd0f4007f574ee698d46197094f52cc954b532c4f90fc7c03"
+    }
+  ],
+  "key_values": {
+    "sorties": 24,
+    "single_point": 18,
+    "multi_point": 6,
+    "type_counts": {
+      "A": 11,
+      "B": 7,
+      "C": 6
+    },
+    "multi_routes": {
+      "Q2-003": "A:O01→S014→S010→O01",
+      "Q2-008": "A:O01→S007→S015→O01",
+      "Q2-012": "A:O01→S013→S009→O01",
+      "Q2-013": "A:O01→S013→S014→O01",
+      "Q2-019": "C:O01→S001→S010→O01",
+      "Q2-020": "C:O01→S007→S003→O01"
+    },
+    "legs_total": 54
+  },
+  "notes": "单点往返的去程与回程共用一条连线，线宽 = 0.7 + 0.55 × 该机型在该航段的架次数；同一服务区有多种机型时并排平移 2.4 pt。多点路线用虚线箭头画出全部三段。底图为原题 30 m DEM 山体阴影（光源方位 315°、高度角 45°）。"
+}

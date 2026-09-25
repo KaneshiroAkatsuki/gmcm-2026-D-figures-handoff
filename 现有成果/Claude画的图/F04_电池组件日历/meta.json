@@ -1,0 +1,200 @@
+{
+  "figure_id": "F4",
+  "stem": "fig_energy_calendar",
+  "suggested_caption": "电池与能源组件使用日历",
+  "section": "7.5（(a)）与 8.6.1 或附录 D（(b)）",
+  "files": {
+    "script": "fig_energy_calendar.py",
+    "csv": "fig_energy_calendar.csv",
+    "png": "fig_energy_calendar.png",
+    "svg": "fig_energy_calendar.svg"
+  },
+  "size_cm": [
+    15.5,
+    16.6
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    1960
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "中文宋体（SimSun），英文与数字 Times New Roman，记号 STIX",
+  "sources": [
+    {
+      "path": "inputs/results/q2.json",
+      "sha256": "b73d4c7d7fb0025bfa59cd36c4b3b158f467cf5375a044303eaa1412819f03cc"
+    },
+    {
+      "path": "inputs/results/q3.json",
+      "sha256": "d19baf7f2faad5eac7bf481804aa266cf096723d667764acb9e687f781db96d3"
+    },
+    {
+      "path": "inputs/raw/无人机应急物资运输基础数据/运输无人机数据.xlsx",
+      "sha256": "9296a657c07e042afba6aeea7999665d9cd24e00b592fd6c269de6e338480dcb"
+    },
+    {
+      "path": "inputs/raw/无人机应急物资运输基础数据/中继无人机数据.xlsx",
+      "sha256": "be52643ff29419233e6a141dca03a04160a8af551cab36d8c49b51bb836bea04"
+    }
+  ],
+  "key_values": {
+    "wait_example": {
+      "task": "Q2-022",
+      "drone": "U04",
+      "battery": "A-BAT-06",
+      "drone_free": 4380.108956,
+      "battery_ready": 4489.044541,
+      "start": 4489.044541,
+      "wait": 108.935585
+    },
+    "q2_battery_ready_checked": 14,
+    "q3_intervals_checked_against_resource_check": 31,
+    "charge_full_s": {
+      "A": 1800.0,
+      "B": 2400.0,
+      "C": 3000.0,
+      "R": 1800.0
+    },
+    "relay_turnaround_s": 300.0,
+    "use_count_and_occupancy_s": {
+      "Q2/A-BAT-01": [
+        2,
+        5672.655
+      ],
+      "Q2/A-BAT-02": [
+        2,
+        7205.543
+      ],
+      "Q2/A-BAT-03": [
+        2,
+        6441.233
+      ],
+      "Q2/A-BAT-04": [
+        2,
+        6033.275
+      ],
+      "Q2/A-BAT-05": [
+        1,
+        3571.68
+      ],
+      "Q2/A-BAT-06": [
+        2,
+        5658.998
+      ],
+      "Q2/B-BAT-01": [
+        2,
+        5318.942
+      ],
+      "Q2/B-BAT-02": [
+        2,
+        7700.052
+      ],
+      "Q2/B-BAT-03": [
+        2,
+        5979.693
+      ],
+      "Q2/B-BAT-04": [
+        1,
+        3765.995
+      ],
+      "Q2/C-BAT-01": [
+        2,
+        8005.652
+      ],
+      "Q2/C-BAT-02": [
+        2,
+        8072.769
+      ],
+      "Q2/C-BAT-03": [
+        1,
+        4424.709
+      ],
+      "Q2/C-BAT-04": [
+        1,
+        4467.798
+      ],
+      "Q3/A-BAT-01": [
+        2,
+        5353.018
+      ],
+      "Q3/A-BAT-02": [
+        2,
+        4800.505
+      ],
+      "Q3/A-BAT-03": [
+        2,
+        4899.271
+      ],
+      "Q3/A-BAT-04": [
+        2,
+        5497.219
+      ],
+      "Q3/A-BAT-05": [
+        1,
+        2121.36
+      ],
+      "Q3/A-BAT-06": [
+        1,
+        2205.502
+      ],
+      "Q3/B-BAT-01": [
+        2,
+        7277.21
+      ],
+      "Q3/B-BAT-02": [
+        3,
+        8917.849
+      ],
+      "Q3/B-BAT-03": [
+        2,
+        6104.908
+      ],
+      "Q3/B-BAT-04": [
+        1,
+        2960.803
+      ],
+      "Q3/C-BAT-01": [
+        2,
+        8359.272
+      ],
+      "Q3/C-BAT-02": [
+        2,
+        9140.053
+      ],
+      "Q3/C-BAT-03": [
+        2,
+        9262.103
+      ],
+      "Q3/C-BAT-04": [
+        1,
+        3183.688
+      ],
+      "Q3/EC01": [
+        1,
+        3123.755
+      ],
+      "Q3/EC02": [
+        1,
+        5513.371
+      ],
+      "Q3/EC03": [
+        1,
+        3046.319
+      ],
+      "Q3/EC04": [
+        1,
+        5454.082
+      ],
+      "Q3/EC05": [
+        1,
+        3195.234
+      ],
+      "Q3/EC06": [
+        1,
+        2823.577
+      ]
+    }
+  },
+  "notes": "条上编号省略题号前缀。电池占用 = [准备开始, 返航 + 式(15)充电时间)；组件占用 = [准备开始, 返航 + 300 s + 充电时间)。等待时段为实体已返回而电池尚未充满的区间。"
+}

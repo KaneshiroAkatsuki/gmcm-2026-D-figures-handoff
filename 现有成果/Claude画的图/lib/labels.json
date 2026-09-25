@@ -1,0 +1,79 @@
+{
+  "_说明": "全部新增图的记号与标签集中在此。正文记号（审核意见 S4）调整后，只改本文件再运行“一键重绘全部.py”。sym 中的单字母记号用 Unicode 数学字母写成，可以与中文写在同一标签里；标签中的 {r}、{soc} 等占位符在绘图时自动替换。带上下标的记号写成 mathtext（$...$），这类字符串中不能含中文。单位写法统一为“量/单位”。",
+  "sym": {
+    "r": "𝑟",
+    "soc": "𝜍",
+    "tau": "𝜏",
+    "relay_pt": "𝔅",
+    "A0": "𝔄₀",
+    "A1": "𝔄₁",
+    "u": "𝔲",
+    "v": "𝔳",
+    "D": "𝔇",
+    "safe_math": "$\\omega^{\\mathrm{safe}}_{\\theta\\iota}$",
+    "cap_math": "$\\mathcal{M}_{\\theta}$",
+    "Nfull_math": "$\\mathcal{N}_{\\mathrm{full}}$",
+    "tchg_math": "$\\tau_{\\mathrm{chg}}(\\varsigma)$"
+  },
+  "common": {
+    "time_s": "时间/s",
+    "lon": "经度/°E",
+    "lat": "纬度/°N",
+    "O01": "调度中心 O01",
+    "site": "服务区",
+    "relay_point": "中继悬停点",
+    "type_A": "A 型",
+    "type_B": "B 型",
+    "type_C": "C 型",
+    "inventory": "库存"
+  },
+  "F01": {
+    "xlabel": "返航安全余量比例 {r}",
+    "ylabel_payload": "最大安全载荷/kg",
+    "ylabel_sorties": "最少架次",
+    "ylabel_energy": "总能耗/kWh",
+    "cap_line": "载重上限",
+    "a_onset": "A 型开始受电量限制",
+    "sorties_step": "最少架次（架次优先）",
+    "energy_sf": "能耗：架次优先",
+    "energy_ef": "能耗：能耗优先",
+    "infeasible": "单点往返无法送完",
+    "limited_count": "受电量限制的组合数"
+  },
+  "F02": {
+    "east": "东向/km",
+    "north": "北向/km",
+    "east_m": "东向/m",
+    "north_m": "北向/m",
+    "dist": "沿视线水平距离/km",
+    "height": "海拔/m",
+    "triangle": "扫掠三角形",
+    "cand_vertex": "三角形顶点",
+    "cand_corner": "三角形内的像元格角",
+    "cand_edge": "三角形边与像元边界的交点",
+    "los": "视线高度",
+    "dem": "像元高程",
+    "dem_clear": "像元高程 + 净空 1 m",
+    "critical": "最小净空所在像元",
+    "time": "时间 {tau}/s",
+    "dist3d": "三维距离 {D}/km",
+    "radius": "计遮挡时的可用距离"
+  },
+  "F03": {
+    "single": "单点往返",
+    "multi": "多点路线"
+  },
+  "F04": {
+    "flight": "任务占用（准备至返航）",
+    "charge": "充电尾段",
+    "turn": "返航后周转 300 s",
+    "wait": "等待电池"
+  },
+  "F05": {
+    "ylabel_drone": "B 型机并发数",
+    "ylabel_battery": "B 型电池并发数",
+    "all": "不分区",
+    "G1": "G1（除 S011 外）",
+    "G2": "G2（S011）"
+  }
+}

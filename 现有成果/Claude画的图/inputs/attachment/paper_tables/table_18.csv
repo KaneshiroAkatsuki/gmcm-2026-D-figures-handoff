@@ -1,0 +1,10 @@
+﻿文件或目录,用途
+README.md、README_reproduction.md,附件说明、依赖与复算顺序
+src/,公共模型、固定计划回算、问题一/四求解及独立检查程序
+config/,运输、中继、时序、资源和通信切换的固定决策
+results/,当前各问题的成套结果
+tables/official_results.xlsx,官方模板各表与增补的Q3运输、逐箱交付表
+tables/q3_supplement.xlsx,完整通信边界与分区对照
+paper_tables/,论文结果表的CSV及工作簿
+figures/,各图源代码、源数据与输出
+checking_notes.md,约束核验说明

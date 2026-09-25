@@ -1,0 +1,11 @@
+from common import *
+stem='q1_lower_bound';d=read('q1_lower_bound',stem);y=np.arange(len(d))
+fig,ax=plt.subplots(figsize=(WIDTH,5.05),layout='constrained')
+a=num(d,'架次下界');b=num(d,'架次优先架次');c=num(d,'能耗优先架次')
+ax.barh(y,a,height=.70,color='#DAE4E9',edgecolor='#6E8996',label='逐区下界',zorder=2)
+ax.scatter(b,y-.12,marker='o',s=48,color=C['A'],label='架次优先方案',zorder=4)
+ax.scatter(c,y+.12,marker='x',s=55,color=C['B'],label='能耗优先方案',zorder=5)
+ax.set_yticks(y,d['服务区']);ax.invert_yaxis();ax.set_xlabel('架次数');integer(ax);grid(ax)
+ax.set_xlim(0,max(c.max(),b.max())+.6);ax.legend(loc='lower right',bbox_to_anchor=(1,.14),frameon=False)
+ax.text(.97,.035,f'下界合计 {int(a.sum())}；两方案 {int(b.sum())} / {int(c.sum())}',transform=ax.transAxes,ha='right',va='bottom')
+save(fig,stem,'逐区架次下界与两类方案对照',[source('q1_lower_bound'),RESULTS/'q1.json',RESULTS/'q1_energy_first.json'],{'lower_bound_total':int(a.sum()),'sorties_first_total':int(b.sum()),'energy_first_total':int(c.sum()),'sorties_first_reaches_all_site_bounds':bool(np.all(a==b))},'下界是当前条件下逐区质量和体积界；只对符合该口径的架次最优结论提供证据。')

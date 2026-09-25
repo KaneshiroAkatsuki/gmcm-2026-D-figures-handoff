@@ -1,0 +1,128 @@
+{
+  "figure_id": "F5",
+  "stem": "fig_q4_gap_mechanism",
+  "suggested_caption": "两组方案中 B 型机与 B 型电池的并发数",
+  "section": "9.4.5",
+  "files": {
+    "script": "fig_q4_gap_mechanism.py",
+    "csv": "fig_q4_gap_mechanism.csv",
+    "png": "fig_q4_gap_mechanism.png",
+    "svg": "fig_q4_gap_mechanism.svg"
+  },
+  "size_cm": [
+    15.5,
+    10.4
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    1228
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "中文宋体（SimSun），英文与数字 Times New Roman，记号 STIX",
+  "sources": [
+    {
+      "path": "inputs/results/q3.json",
+      "sha256": "d19baf7f2faad5eac7bf481804aa266cf096723d667764acb9e687f781db96d3"
+    },
+    {
+      "path": "inputs/results/q4.json",
+      "sha256": "e74f46ea1561c98160fb04d67db38db977247a0ae647e52b4baf3ca22d55f090"
+    },
+    {
+      "path": "inputs/raw/无人机应急物资运输基础数据/运输无人机数据.xlsx",
+      "sha256": "9296a657c07e042afba6aeea7999665d9cd24e00b592fd6c269de6e338480dcb"
+    }
+  ],
+  "key_values": {
+    "drone_B": {
+      "inventory": 2,
+      "peak_all": 2,
+      "peak_G1": 2,
+      "peak_G2": 1,
+      "sum_of_group_peaks": 3,
+      "shortage": 1,
+      "G1_peak_windows_s": [
+        [
+          0.0,
+          1922.827
+        ],
+        [
+          2163.999,
+          3077.018
+        ],
+        [
+          4652.299,
+          5610.614
+        ]
+      ],
+      "G2_peak_windows_s": [
+        [
+          3463.874,
+          4652.299
+        ]
+      ],
+      "all_peak_windows_s": [
+        [
+          0.0,
+          1922.827
+        ],
+        [
+          2163.999,
+          3077.018
+        ],
+        [
+          3463.874,
+          3740.309
+        ],
+        [
+          3782.287,
+          4652.299
+        ],
+        [
+          4652.299,
+          5610.614
+        ]
+      ]
+    },
+    "battery_B": {
+      "inventory": 4,
+      "peak_all": 4,
+      "peak_G1": 4,
+      "peak_G2": 1,
+      "sum_of_group_peaks": 5,
+      "shortage": 1,
+      "G1_peak_windows_s": [
+        [
+          2163.999,
+          3463.874
+        ]
+      ],
+      "G2_peak_windows_s": [
+        [
+          3463.874,
+          5784.338
+        ]
+      ],
+      "all_peak_windows_s": [
+        [
+          2163.999,
+          3463.874
+        ],
+        [
+          3463.874,
+          3782.287
+        ],
+        [
+          3782.287,
+          4236.869
+        ],
+        [
+          4652.299,
+          5124.802
+        ]
+      ]
+    }
+  },
+  "notes": "G1 为除 S011 外的 14 个服务区，G2 为 S011（K=2 资源优先方案）。不分区曲线等于两组曲线之和，最大为库存值；两组各自的峰值出现在不同时段，分组后各组需按自身峰值配备，合计比库存多 1 件。"
+}

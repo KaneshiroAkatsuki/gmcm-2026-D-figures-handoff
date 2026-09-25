@@ -1,0 +1,719 @@
+{
+  "model": "H1_range_plus_potential_local_WGS84",
+  "source_q3_sha256": "d19baf7f2faad5eac7bf481804aa266cf096723d667764acb9e687f781db96d3",
+  "assumptions": "All experimental Q3 tasks, times and communication relations fixed; no relay task copying; same-type resources may be reassigned within a group.",
+  "baseline_resources": {
+    "drone_A": 4,
+    "battery_A": 6,
+    "drone_B": 2,
+    "battery_B": 4,
+    "drone_C": 2,
+    "battery_C": 4,
+    "relay": 2,
+    "component": 4
+  },
+  "inventory": {
+    "drone_A": 4,
+    "drone_B": 2,
+    "drone_C": 2,
+    "battery_A": 6,
+    "battery_B": 4,
+    "battery_C": 4,
+    "relay": 2,
+    "component": 6
+  },
+  "components": [
+    [
+      "S001",
+      "S005",
+      "S009"
+    ],
+    [
+      "S002",
+      "S003",
+      "S004",
+      "S007",
+      "S008",
+      "S010",
+      "S012",
+      "S013",
+      "S014",
+      "S015"
+    ],
+    [
+      "S006"
+    ],
+    [
+      "S011"
+    ]
+  ],
+  "selected": [
+    {
+      "K": 2,
+      "groups": [
+        {
+          "id": "G1",
+          "sites": [
+            "S001",
+            "S002",
+            "S003",
+            "S004",
+            "S005",
+            "S006",
+            "S007",
+            "S008",
+            "S009",
+            "S010",
+            "S012",
+            "S013",
+            "S014",
+            "S015"
+          ],
+          "transport_ids": [
+            "Q3-001",
+            "Q3-002",
+            "Q3-003",
+            "Q3-006",
+            "Q3-007",
+            "Q3-008",
+            "Q3-009",
+            "Q3-010",
+            "Q3-011",
+            "Q3-012",
+            "Q3-013",
+            "Q3-014",
+            "Q3-016",
+            "Q3-017",
+            "Q3-018",
+            "Q3-026",
+            "Q3-G1-2",
+            "Q3-G2-2",
+            "Q3-G3-1",
+            "Q3-H1-1",
+            "Q3-H1-2",
+            "Q3-H2-1",
+            "Q3-H2-2",
+            "Q3-M002"
+          ],
+          "relay_ids": [
+            "R-001",
+            "R-002",
+            "R-003",
+            "R-004",
+            "R-005",
+            "R-006"
+          ],
+          "resources": {
+            "drone_A": 4,
+            "battery_A": 6,
+            "drone_B": 2,
+            "battery_B": 4,
+            "drone_C": 2,
+            "battery_C": 4,
+            "relay": 2,
+            "component": 4
+          },
+          "transport_work": 41506.828960201834,
+          "relay_work": 18289.770316282607
+        },
+        {
+          "id": "G2",
+          "sites": [
+            "S011"
+          ],
+          "transport_ids": [
+            "Q3-023"
+          ],
+          "relay_ids": [],
+          "resources": {
+            "drone_A": 0,
+            "battery_A": 0,
+            "drone_B": 1,
+            "battery_B": 1,
+            "drone_C": 0,
+            "battery_C": 0,
+            "relay": 0,
+            "component": 0
+          },
+          "transport_work": 1188.4247628605203,
+          "relay_work": 0.0
+        }
+      ],
+      "total": {
+        "drone_A": 4,
+        "battery_A": 6,
+        "drone_B": 3,
+        "battery_B": 5,
+        "drone_C": 2,
+        "battery_C": 4,
+        "relay": 2,
+        "component": 4
+      },
+      "redundancy": {
+        "drone_A": 0,
+        "battery_A": 0,
+        "drone_B": 1,
+        "battery_B": 1,
+        "drone_C": 0,
+        "battery_C": 0,
+        "relay": 0,
+        "component": 0
+      },
+      "shortage": {
+        "drone_A": 0,
+        "battery_A": 0,
+        "drone_B": 1,
+        "battery_B": 1,
+        "drone_C": 0,
+        "battery_C": 0,
+        "relay": 0,
+        "component": 0
+      },
+      "workload_cv": 0.9610256851880948,
+      "selection_key": [
+        2,
+        11,
+        19,
+        0.9610256851880948
+      ],
+      "component_masks": [
+        7,
+        8
+      ],
+      "enumerated_partitions": 7
+    },
+    {
+      "K": 3,
+      "groups": [
+        {
+          "id": "G1",
+          "sites": [
+            "S001",
+            "S002",
+            "S003",
+            "S004",
+            "S005",
+            "S007",
+            "S008",
+            "S009",
+            "S010",
+            "S012",
+            "S013",
+            "S014",
+            "S015"
+          ],
+          "transport_ids": [
+            "Q3-001",
+            "Q3-002",
+            "Q3-003",
+            "Q3-006",
+            "Q3-007",
+            "Q3-009",
+            "Q3-010",
+            "Q3-011",
+            "Q3-012",
+            "Q3-016",
+            "Q3-017",
+            "Q3-018",
+            "Q3-026",
+            "Q3-G1-2",
+            "Q3-G2-2",
+            "Q3-G3-1",
+            "Q3-H1-1",
+            "Q3-H1-2",
+            "Q3-H2-1",
+            "Q3-H2-2",
+            "Q3-M002"
+          ],
+          "relay_ids": [
+            "R-001",
+            "R-002",
+            "R-003",
+            "R-004",
+            "R-005",
+            "R-006"
+          ],
+          "resources": {
+            "drone_A": 4,
+            "battery_A": 5,
+            "drone_B": 2,
+            "battery_B": 3,
+            "drone_C": 2,
+            "battery_C": 4,
+            "relay": 2,
+            "component": 4
+          },
+          "transport_work": 37672.60566927405,
+          "relay_work": 18289.770316282607
+        },
+        {
+          "id": "G2",
+          "sites": [
+            "S006"
+          ],
+          "transport_ids": [
+            "Q3-008",
+            "Q3-013",
+            "Q3-014"
+          ],
+          "relay_ids": [],
+          "resources": {
+            "drone_A": 2,
+            "battery_A": 2,
+            "drone_B": 1,
+            "battery_B": 1,
+            "drone_C": 0,
+            "battery_C": 0,
+            "relay": 0,
+            "component": 0
+          },
+          "transport_work": 3834.223290927787,
+          "relay_work": 0.0
+        },
+        {
+          "id": "G3",
+          "sites": [
+            "S011"
+          ],
+          "transport_ids": [
+            "Q3-023"
+          ],
+          "relay_ids": [],
+          "resources": {
+            "drone_A": 0,
+            "battery_A": 0,
+            "drone_B": 1,
+            "battery_B": 1,
+            "drone_C": 0,
+            "battery_C": 0,
+            "relay": 0,
+            "component": 0
+          },
+          "transport_work": 1188.4247628605203,
+          "relay_work": 0.0
+        }
+      ],
+      "total": {
+        "drone_A": 6,
+        "battery_A": 7,
+        "drone_B": 4,
+        "battery_B": 5,
+        "drone_C": 2,
+        "battery_C": 4,
+        "relay": 2,
+        "component": 4
+      },
+      "redundancy": {
+        "drone_A": 2,
+        "battery_A": 1,
+        "drone_B": 2,
+        "battery_B": 1,
+        "drone_C": 0,
+        "battery_C": 0,
+        "relay": 0,
+        "component": 0
+      },
+      "shortage": {
+        "drone_A": 2,
+        "battery_A": 1,
+        "drone_B": 2,
+        "battery_B": 1,
+        "drone_C": 0,
+        "battery_C": 0,
+        "relay": 0,
+        "component": 0
+      },
+      "workload_cv": 1.2406427138653764,
+      "selection_key": [
+        6,
+        14,
+        20,
+        1.2406427138653764
+      ],
+      "component_masks": [
+        3,
+        4,
+        8
+      ],
+      "enumerated_partitions": 6
+    }
+  ],
+  "alternative_selected": [
+    {
+      "K": 2,
+      "groups": [
+        {
+          "id": "G1",
+          "sites": [
+            "S001",
+            "S002",
+            "S003",
+            "S004",
+            "S005",
+            "S006",
+            "S007",
+            "S008",
+            "S009",
+            "S010",
+            "S012",
+            "S013",
+            "S014",
+            "S015"
+          ],
+          "transport_ids": [
+            "Q3-001",
+            "Q3-002",
+            "Q3-003",
+            "Q3-006",
+            "Q3-007",
+            "Q3-008",
+            "Q3-009",
+            "Q3-010",
+            "Q3-011",
+            "Q3-012",
+            "Q3-013",
+            "Q3-014",
+            "Q3-016",
+            "Q3-017",
+            "Q3-018",
+            "Q3-026",
+            "Q3-G1-2",
+            "Q3-G2-2",
+            "Q3-G3-1",
+            "Q3-H1-1",
+            "Q3-H1-2",
+            "Q3-H2-1",
+            "Q3-H2-2",
+            "Q3-M002"
+          ],
+          "relay_ids": [
+            "R-001",
+            "R-002",
+            "R-003",
+            "R-004",
+            "R-005",
+            "R-006"
+          ],
+          "resources": {
+            "drone_A": 4,
+            "battery_A": 6,
+            "drone_B": 2,
+            "battery_B": 4,
+            "drone_C": 2,
+            "battery_C": 4,
+            "relay": 2,
+            "component": 4
+          },
+          "transport_work": 41506.828960201834,
+          "relay_work": 18289.770316282607
+        },
+        {
+          "id": "G2",
+          "sites": [
+            "S011"
+          ],
+          "transport_ids": [
+            "Q3-023"
+          ],
+          "relay_ids": [],
+          "resources": {
+            "drone_A": 0,
+            "battery_A": 0,
+            "drone_B": 1,
+            "battery_B": 1,
+            "drone_C": 0,
+            "battery_C": 0,
+            "relay": 0,
+            "component": 0
+          },
+          "transport_work": 1188.4247628605203,
+          "relay_work": 0.0
+        }
+      ],
+      "total": {
+        "drone_A": 4,
+        "battery_A": 6,
+        "drone_B": 3,
+        "battery_B": 5,
+        "drone_C": 2,
+        "battery_C": 4,
+        "relay": 2,
+        "component": 4
+      },
+      "redundancy": {
+        "drone_A": 0,
+        "battery_A": 0,
+        "drone_B": 1,
+        "battery_B": 1,
+        "drone_C": 0,
+        "battery_C": 0,
+        "relay": 0,
+        "component": 0
+      },
+      "shortage": {
+        "drone_A": 0,
+        "battery_A": 0,
+        "drone_B": 1,
+        "battery_B": 1,
+        "drone_C": 0,
+        "battery_C": 0,
+        "relay": 0,
+        "component": 0
+      },
+      "workload_cv": 0.9610256851880948,
+      "selection_key": [
+        2,
+        11,
+        19,
+        0.9610256851880948
+      ],
+      "component_masks": [
+        7,
+        8
+      ],
+      "alternative_selection_key": [
+        2,
+        0.9610256851880948,
+        11,
+        19
+      ],
+      "selection": "最小库存缺口→工作量CV→实体数→能源件数；对照方案，未替换资源优先结果"
+    },
+    {
+      "K": 3,
+      "groups": [
+        {
+          "id": "G1",
+          "sites": [
+            "S001",
+            "S002",
+            "S003",
+            "S004",
+            "S005",
+            "S007",
+            "S008",
+            "S009",
+            "S010",
+            "S012",
+            "S013",
+            "S014",
+            "S015"
+          ],
+          "transport_ids": [
+            "Q3-001",
+            "Q3-002",
+            "Q3-003",
+            "Q3-006",
+            "Q3-007",
+            "Q3-009",
+            "Q3-010",
+            "Q3-011",
+            "Q3-012",
+            "Q3-016",
+            "Q3-017",
+            "Q3-018",
+            "Q3-026",
+            "Q3-G1-2",
+            "Q3-G2-2",
+            "Q3-G3-1",
+            "Q3-H1-1",
+            "Q3-H1-2",
+            "Q3-H2-1",
+            "Q3-H2-2",
+            "Q3-M002"
+          ],
+          "relay_ids": [
+            "R-001",
+            "R-002",
+            "R-003",
+            "R-004",
+            "R-005",
+            "R-006"
+          ],
+          "resources": {
+            "drone_A": 4,
+            "battery_A": 5,
+            "drone_B": 2,
+            "battery_B": 3,
+            "drone_C": 2,
+            "battery_C": 4,
+            "relay": 2,
+            "component": 4
+          },
+          "transport_work": 37672.60566927405,
+          "relay_work": 18289.770316282607
+        },
+        {
+          "id": "G2",
+          "sites": [
+            "S006"
+          ],
+          "transport_ids": [
+            "Q3-008",
+            "Q3-013",
+            "Q3-014"
+          ],
+          "relay_ids": [],
+          "resources": {
+            "drone_A": 2,
+            "battery_A": 2,
+            "drone_B": 1,
+            "battery_B": 1,
+            "drone_C": 0,
+            "battery_C": 0,
+            "relay": 0,
+            "component": 0
+          },
+          "transport_work": 3834.223290927787,
+          "relay_work": 0.0
+        },
+        {
+          "id": "G3",
+          "sites": [
+            "S011"
+          ],
+          "transport_ids": [
+            "Q3-023"
+          ],
+          "relay_ids": [],
+          "resources": {
+            "drone_A": 0,
+            "battery_A": 0,
+            "drone_B": 1,
+            "battery_B": 1,
+            "drone_C": 0,
+            "battery_C": 0,
+            "relay": 0,
+            "component": 0
+          },
+          "transport_work": 1188.4247628605203,
+          "relay_work": 0.0
+        }
+      ],
+      "total": {
+        "drone_A": 6,
+        "battery_A": 7,
+        "drone_B": 4,
+        "battery_B": 5,
+        "drone_C": 2,
+        "battery_C": 4,
+        "relay": 2,
+        "component": 4
+      },
+      "redundancy": {
+        "drone_A": 2,
+        "battery_A": 1,
+        "drone_B": 2,
+        "battery_B": 1,
+        "drone_C": 0,
+        "battery_C": 0,
+        "relay": 0,
+        "component": 0
+      },
+      "shortage": {
+        "drone_A": 2,
+        "battery_A": 1,
+        "drone_B": 2,
+        "battery_B": 1,
+        "drone_C": 0,
+        "battery_C": 0,
+        "relay": 0,
+        "component": 0
+      },
+      "workload_cv": 1.2406427138653764,
+      "selection_key": [
+        6,
+        14,
+        20,
+        1.2406427138653764
+      ],
+      "component_masks": [
+        3,
+        4,
+        8
+      ],
+      "alternative_selection_key": [
+        6,
+        1.2406427138653764,
+        14,
+        20
+      ],
+      "selection": "最小库存缺口→工作量CV→实体数→能源件数；对照方案，未替换资源优先结果"
+    }
+  ],
+  "enumeration_statistics": [
+    {
+      "K": 2,
+      "enumerated_partitions": 7,
+      "expected_stirling_partitions": 7,
+      "resource_total_min": {
+        "drone_A": 4,
+        "battery_A": 6,
+        "drone_B": 3,
+        "battery_B": 5,
+        "drone_C": 2,
+        "battery_C": 4,
+        "relay": 2,
+        "component": 4
+      },
+      "resource_total_max": {
+        "drone_A": 7,
+        "battery_A": 9,
+        "drone_B": 3,
+        "battery_B": 5,
+        "drone_C": 3,
+        "battery_C": 4,
+        "relay": 4,
+        "component": 5
+      },
+      "shortage_units_histogram": {
+        "2": 1,
+        "5": 2,
+        "9": 2,
+        "11": 2
+      }
+    },
+    {
+      "K": 3,
+      "enumerated_partitions": 6,
+      "expected_stirling_partitions": 6,
+      "resource_total_min": {
+        "drone_A": 6,
+        "battery_A": 7,
+        "drone_B": 4,
+        "battery_B": 5,
+        "drone_C": 2,
+        "battery_C": 4,
+        "relay": 2,
+        "component": 4
+      },
+      "resource_total_max": {
+        "drone_A": 8,
+        "battery_A": 9,
+        "drone_B": 4,
+        "battery_B": 6,
+        "drone_C": 3,
+        "battery_C": 4,
+        "relay": 4,
+        "component": 5
+      },
+      "shortage_units_histogram": {
+        "6": 1,
+        "11": 1,
+        "12": 1,
+        "13": 1,
+        "14": 2
+      }
+    }
+  ],
+  "subset_precomputation": {
+    "count_including_empty": 16,
+    "resource_types": 8,
+    "seconds": 0.0008563000010326505
+  },
+  "elapsed_seconds": 0.001370500001939945,
+  "all_partitions_retained": false,
+  "selection": "先库存缺口件数，再实体数、能源件数、工作量CV；条件口径下完全枚举最优，不是Q3/Q4联合全局最优",
+  "policy": "no_relay_task_copy_with_in_group_reassignment",
+  "experiment": "Derived from the validated new Q3 candidate; not the published v003.1 Q4."
+}

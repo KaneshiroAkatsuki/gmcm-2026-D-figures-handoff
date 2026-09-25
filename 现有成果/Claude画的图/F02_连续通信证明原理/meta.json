@@ -1,0 +1,88 @@
+{
+  "figure_id": "F2",
+  "stem": "fig_comm_proof",
+  "suggested_caption": "连续通信的两类闭区间证书",
+  "section": "8.5.2",
+  "files": {
+    "script": "fig_comm_proof.py",
+    "csv": "fig_comm_proof.csv",
+    "png": "fig_comm_proof.png",
+    "svg": "fig_comm_proof.svg"
+  },
+  "size_cm": [
+    15.5,
+    12.4
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    1464
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "中文宋体（SimSun），英文与数字 Times New Roman，记号 STIX",
+  "sources": [
+    {
+      "path": "inputs/results/q3.json",
+      "sha256": "d19baf7f2faad5eac7bf481804aa266cf096723d667764acb9e687f781db96d3"
+    },
+    {
+      "path": "inputs/attachment/src/dcore.py",
+      "sha256": "725eee10b593475a9c2a548a3bf60c6a56828478ddf661ffcdc3a80d7a3c7978"
+    },
+    {
+      "path": "inputs/attachment/src/bounded_certificates.py",
+      "sha256": "f1741a539417e38b90052cc6cd92934e83cfe67ed1792a360ba19c49259d3b62"
+    },
+    {
+      "path": "inputs/raw/镇龙乡地理空间数据/镇龙乡及周边地理数据/数字高程模型数据（DEM）/镇龙乡及周边30米DEM.tif",
+      "sha256": "741fe6de0b2bcaffd0f4007f574ee698d46197094f52cc954b532c4f90fc7c03"
+    },
+    {
+      "path": "inputs/raw/无人机应急物资运输基础数据/调度中心与服务区.xlsx",
+      "sha256": "541a7af1ded08c9a3ff448480332cb5f6a54902f0afa6e9bcd50c1d2b2b34e38"
+    },
+    {
+      "path": "inputs/raw/无人机应急物资运输基础数据/通信链路参数.xlsx",
+      "sha256": "1860d153199e7ae460ba36e83b673374e640e19de91ea167f2877271001f5f81"
+    }
+  ],
+  "key_values": {
+    "triangle_interval": {
+      "task": "Q3-H1-2",
+      "event": 2,
+      "relay": "R-004",
+      "start_s": 2914.4180303205717,
+      "end_s": 2947.4298266160986,
+      "margin_clear_db": 0.022010087566542325,
+      "margin_if_blocked_db": -9.977989912433458,
+      "max_distance_m": 6254.437455297835,
+      "min_clearance_m": 11.102892022123228,
+      "critical_cell": [
+        596,
+        750
+      ],
+      "critical_cell_height_m": 353.8161926269531,
+      "critical_time_s": 2947.429826616098,
+      "candidate_counts_in_zoom": {
+        "vertex": 1,
+        "corner": 14,
+        "edge": 49
+      },
+      "cells_in_zoom_hit": 37
+    },
+    "distance_interval": {
+      "task": "Q3-006",
+      "event": 3,
+      "relay": "R-004",
+      "start_s": 2771.2601412514014,
+      "end_s": 2856.2297243812836,
+      "distance_start_m": 1974.1171974572599,
+      "distance_end_m": 1977.8269096719337,
+      "margin_start_db": 0.03831652839528488,
+      "margin_lower_db": 0.022009536455854573,
+      "obstructed_radius_m": 1982.8449624534046
+    },
+    "global_min_certified_margin_db": 0.022009536455854573
+  },
+  "notes": "(a) 坐标为以 O01 为原点的局部平面（km）；(b) 以 𝔅 的水平位置为原点（m），灰线为 DEM 像元边界；(c) 横轴为沿视线的水平距离，折线为视线穿过的像元高程；(d) 横轴自下降段开始计时。候选点只画 (b) 窗口内的部分；全区间的最小净空由附件 minimum_clearance 计算并与 q3.json 核对。"
+}

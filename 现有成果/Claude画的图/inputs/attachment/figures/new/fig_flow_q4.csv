@@ -1,0 +1,31 @@
+﻿record_type,id,x,y,text,kind,width,height,source_ref,source,target,label,route
+node,n0,0.265,0.91,"固定问题三任务、时刻
+与完整绑定",terminal,0.415,0.13,src/partition_frozen.py;results/q4.json;results/q4_no_copy_sensitivity.json,,,,
+node,n1,0.265,0.7050000000000001,"明确中继归属规则
+主口径完整复制
+对照禁止复制",process,0.415,0.13,src/partition_frozen.py;results/q4.json;results/q4_no_copy_sensitivity.json,,,,
+node,n2,0.265,0.5,"构建不可拆单元
+主口径 14 个
+禁止复制 4 个",process,0.415,0.13,src/partition_frozen.py;results/q4.json;results/q4_no_copy_sensitivity.json,,,,
+node,n3,0.265,0.29500000000000004,"构建八类资源半开占用区间
+包含规定充电与周转",process,0.415,0.13,src/partition_frozen.py;results/q4.json;results/q4_no_copy_sensitivity.json,,,,
+node,n4,0.265,0.09,"预计算各子集峰值需求
+及工作量",process,0.415,0.13,src/partition_frozen.py;results/q4.json;results/q4_no_copy_sensitivity.json,,,,
+node,n5,0.755,0.09,"规范编号枚举全部非空分区
+用理论计数检查遍历完整性",process,0.415,0.13,src/partition_frozen.py;results/q4.json;results/q4_no_copy_sensitivity.json,,,,
+node,n6,0.755,0.3633333333333334,"计算规模、冗余、缺口、均衡
+资源优先／均衡优先
+分别择优",process,0.415,0.13,src/partition_frozen.py;results/q4.json;results/q4_no_copy_sensitivity.json,,,,
+node,n7,0.755,0.6366666666666667,"独立重算
+并逐任务构造资源编号",process,0.415,0.13,src/partition_frozen.py;results/q4.json;results/q4_no_copy_sensitivity.json,,,,
+node,n8,0.755,0.91,"输出两／三组方案
+最优性限定固定计划
+与所选口径",terminal,0.415,0.13,src/partition_frozen.py;results/q4.json;results/q4_no_copy_sensitivity.json,,,,
+edge,,,,,,,,,n0,n1,,direct
+edge,,,,,,,,,n1,n2,,direct
+edge,,,,,,,,,n2,n3,,direct
+edge,,,,,,,,,n3,n4,,direct
+edge,,,,,,,,,n4,n5,,direct
+edge,,,,,,,,,n5,n6,,direct
+edge,,,,,,,,,n6,n7,,direct
+edge,,,,,,,,,n7,n8,,direct

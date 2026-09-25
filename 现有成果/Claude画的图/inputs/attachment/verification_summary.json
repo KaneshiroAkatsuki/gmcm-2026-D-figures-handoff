@@ -1,0 +1,42 @@
+{
+  "version": "v004",
+  "checked_at": "2026-09-25T08:41:15.843371+08:00",
+  "scope": "当前四问结果的物理、连续通信、状态、资源及固定分区验证；论文图件重绘",
+  "verification": {
+    "passed": true,
+    "transport": {
+      "q1": true,
+      "q1_energy_first": true,
+      "q2": true,
+      "q3": true
+    },
+    "robust_interval_count": 456,
+    "robust_boundary_count": 635,
+    "nominal_interval_count": 525,
+    "nominal_boundary_count": 704,
+    "minimum_strengthened_margin_db": 0.02200953645584946,
+    "concurrency": {
+      "R-001": 5,
+      "R-002": 2,
+      "R-003": 2,
+      "R-004": 3,
+      "R-005": 1,
+      "R-006": 2
+    }
+  },
+  "q4": {
+    "copy": true,
+    "no_copy": true
+  },
+  "current_result_sha256": {
+    "q1.json": "af769eff835a16803d67ee962c90c1a63f49459cd180e8dfc6ea67cb08c47ecc",
+    "q1_energy_first.json": "29986a28924ac4ec923187ada2071103bc4633ecab2a6cec994c5b60e2a83a30",
+    "q2.json": "dab8ca688257458f3bd008f75346aacb94798987d9c57dbd72687797f836eda8",
+    "q3.json": "d9c4ad4e554302aac808b5ca32b7facae6190ce03fbab1cc096ea475c90cdac8",
+    "q4.json": "aaffbb2367733515e5543ebe852687de08960d90ec97db26f321bfc30e3bd638",
+    "q4_no_copy_sensitivity.json": "10fae724ff7ec8ae022b62a6ff1db273d810d3291209fbbf65c3c047a6bad90e"
+  },
+  "figures_reproduced_identically": 28,
+  "source_results_unchanged": true,
+  "notes": "在独立运行副本完成；本记录不表示全局优化证明或现实无线可靠度保证。"
+}

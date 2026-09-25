@@ -1,0 +1,44 @@
+{
+  "version": "v004",
+  "source_lab": "D:\\D2026_v004_lab_20260924_204138",
+  "status": "independently_validated_new_version",
+  "files": [
+    {
+      "name": "q1.json",
+      "sha256": "22124547a8a67f5e414eba18f03b6881d1da74530a7d3d9dce2ede1d229b1f08",
+      "source": "D:\\D2026_release_v003_1_20260924\\attachment\\results\\q1.json"
+    },
+    {
+      "name": "q1_energy_first.json",
+      "sha256": "986ad1fd017ef9dc175e7349e9990c037b3ae0451c5108b24827065654ed846e",
+      "source": "D:\\D2026_release_v003_1_20260924\\attachment\\results\\q1_energy_first.json"
+    },
+    {
+      "name": "q2_energy_priority.json",
+      "sha256": "e9c875b83a4cc62c188f40bd3b5c62d61de595fc4975b47335e6001251271065",
+      "source": "D:\\D2026_release_v003_1_20260924\\attachment\\results\\q2_energy_priority.json"
+    },
+    {
+      "name": "q2.json",
+      "sha256": "b73d4c7d7fb0025bfa59cd36c4b3b158f467cf5375a044303eaa1412819f03cc",
+      "source": "D:\\D2026_v004_lab_20260924_204138\\work\\integration\\reference\\q2_best.json"
+    },
+    {
+      "name": "q3.json",
+      "sha256": "d19baf7f2faad5eac7bf481804aa266cf096723d667764acb9e687f781db96d3",
+      "source": "D:\\D2026_v004_lab_20260924_204138\\work\\integration\\output\\regroup_final_retry\\q3_regroup_candidate.json"
+    },
+    {
+      "name": "q4.json",
+      "sha256": "e74f46ea1561c98160fb04d67db38db977247a0ae647e52b4baf3ca22d55f090",
+      "source": "D:\\D2026_v004_lab_20260924_204138\\work\\verification\\output\\experiment\\q4_candidate.json"
+    },
+    {
+      "name": "q4_no_copy_sensitivity.json",
+      "sha256": "b515395d81cd81f607f2c5a39a7a55be5b78edc28a65f025538cd677b1d611f3",
+      "source": "D:\\D2026_v004_lab_20260924_204138\\work\\verification\\output\\experiment\\q4_no_copy_candidate.json"
+    }
+  ],
+  "model": "H1 fixed; full continuous certificates; Q4 inherits exact selected Q3",
+  "original_release_preserved": true
+}

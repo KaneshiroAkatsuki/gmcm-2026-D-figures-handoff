@@ -1,0 +1,11 @@
+from common import *
+stem='q1_fixed_slack';d=read('q1_fixed_reserve_slack',stem);fig,ax=plt.subplots(figsize=(WIDTH,5.3),layout='constrained')
+y=np.arange(len(d));v=num(d,'返航SOC');base=num(d,'安全余量比例')
+assert np.allclose(base,base[0])
+ax.barh(y,base,color='#E8EBED',height=.66,label='安全余量',zorder=2)
+ax.barh(y,v-base,left=base,color=C['direct'],height=.66,zorder=3)
+ax.axvline(base[0],ls='--',color='#202930',lw=1,label=f'安全阈值 {base[0]:.2f}')
+ax.set_yticks(y,d['架次']);ax.invert_yaxis();ax.set_xlabel('返航荷电状态');ax.set_xlim(0,.85);grid(ax)
+for yy,val in zip(y,v):ax.text(val+.012,yy,f'{val:.3f}',va='center',fontsize=10)
+ax.legend(loc='lower right',frameon=False)
+save(fig,stem,'固定装箱方案的返航余量',[source('q1_fixed_reserve_slack'),RESULTS/'q1.json'],{'tasks':len(d),'minimum_return_soc':float(v.min()),'minimum_additional_reserve':float((v-base).min()),'all_return_soc_above_bound':bool(np.all(v>=base))},'仅评价既定18架次对安全余量的承受范围，没有重新优化，也不是多情景求解结果。')

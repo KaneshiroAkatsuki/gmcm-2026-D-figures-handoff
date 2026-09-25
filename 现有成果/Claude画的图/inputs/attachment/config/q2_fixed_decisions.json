@@ -1,0 +1,381 @@
+{
+  "format": "fixed_decisions_v1",
+  "problem": "Q2",
+  "meaning": "A feasible schedule specified as fixed decisions; replay recomputes physical values from raw inputs and does not repeat or claim an optimization search.",
+  "transport": [
+    {
+      "id": "Q2-001",
+      "type": "B",
+      "boxes": [
+        "S001-WAT-01",
+        "S001-MED-01",
+        "S001-MED-02"
+      ],
+      "order": [
+        "S001"
+      ],
+      "start": 0.0,
+      "drone": "U05",
+      "battery": "B-BAT-01"
+    },
+    {
+      "id": "Q2-002",
+      "type": "A",
+      "boxes": [
+        "S006-MED-01",
+        "S006-WAT-03"
+      ],
+      "order": [
+        "S006"
+      ],
+      "start": 0.0,
+      "drone": "U01",
+      "battery": "A-BAT-01"
+    },
+    {
+      "id": "Q2-003",
+      "type": "A",
+      "boxes": [
+        "S014-MED-01",
+        "S014-WAT-01",
+        "S010-MED-01"
+      ],
+      "order": [
+        "S014",
+        "S010"
+      ],
+      "start": 0.0,
+      "drone": "U02",
+      "battery": "A-BAT-02"
+    },
+    {
+      "id": "Q2-004",
+      "type": "A",
+      "boxes": [
+        "S005-MED-01",
+        "S005-WAT-03"
+      ],
+      "order": [
+        "S005"
+      ],
+      "start": 0.0,
+      "drone": "U03",
+      "battery": "A-BAT-03"
+    },
+    {
+      "id": "Q2-005",
+      "type": "B",
+      "boxes": [
+        "S012-WAT-01",
+        "S012-MED-01",
+        "S012-FOD-01"
+      ],
+      "order": [
+        "S012"
+      ],
+      "start": 0.0,
+      "drone": "U06",
+      "battery": "B-BAT-02"
+    },
+    {
+      "id": "Q2-006",
+      "type": "A",
+      "boxes": [
+        "S015-FOD-01",
+        "S015-WAT-01"
+      ],
+      "order": [
+        "S015"
+      ],
+      "start": 0.0,
+      "drone": "U04",
+      "battery": "A-BAT-04"
+    },
+    {
+      "id": "Q2-007",
+      "type": "B",
+      "boxes": [
+        "S002-FOD-02",
+        "S002-MED-01",
+        "S002-WAT-03"
+      ],
+      "order": [
+        "S002"
+      ],
+      "start": 1209.1061758262156,
+      "drone": "U05",
+      "battery": "B-BAT-03"
+    },
+    {
+      "id": "Q2-008",
+      "type": "A",
+      "boxes": [
+        "S007-MED-01",
+        "S007-WAT-01",
+        "S015-MED-01"
+      ],
+      "order": [
+        "S007",
+        "S015"
+      ],
+      "start": 1313.4766397798273,
+      "drone": "U01",
+      "battery": "A-BAT-05"
+    },
+    {
+      "id": "Q2-009",
+      "type": "C",
+      "boxes": [
+        "S001-FOD-01",
+        "S001-FOD-02",
+        "S001-HYG-01",
+        "S001-WAT-02",
+        "S001-WAT-03",
+        "S001-WAT-05",
+        "S001-WAT-07"
+      ],
+      "order": [
+        "S001"
+      ],
+      "start": 0.0,
+      "drone": "U07",
+      "battery": "C-BAT-01"
+    },
+    {
+      "id": "Q2-010",
+      "type": "B",
+      "boxes": [
+        "S008-HYG-01",
+        "S008-WAT-01"
+      ],
+      "order": [
+        "S008"
+      ],
+      "start": 1922.8268141491867,
+      "drone": "U06",
+      "battery": "B-BAT-04"
+    },
+    {
+      "id": "Q2-011",
+      "type": "A",
+      "boxes": [
+        "S007-FOD-01",
+        "S007-WAT-02"
+      ],
+      "order": [
+        "S007"
+      ],
+      "start": 1692.1881982380369,
+      "drone": "U03",
+      "battery": "A-BAT-06"
+    },
+    {
+      "id": "Q2-012",
+      "type": "A",
+      "boxes": [
+        "S009-MED-01",
+        "S013-MED-01",
+        "S013-WAT-01"
+      ],
+      "order": [
+        "S013",
+        "S009"
+      ],
+      "start": 2192.3634567411664,
+      "drone": "U04",
+      "battery": "A-BAT-01"
+    },
+    {
+      "id": "Q2-013",
+      "type": "A",
+      "boxes": [
+        "S014-FOD-01",
+        "S013-FOD-01"
+      ],
+      "order": [
+        "S013",
+        "S014"
+      ],
+      "start": 2805.0043213777635,
+      "drone": "U02",
+      "battery": "A-BAT-03"
+    },
+    {
+      "id": "Q2-014",
+      "type": "A",
+      "boxes": [
+        "S005-FOD-01",
+        "S005-WAT-02"
+      ],
+      "order": [
+        "S005"
+      ],
+      "start": 3419.6550841298185,
+      "drone": "U03",
+      "battery": "A-BAT-04"
+    },
+    {
+      "id": "Q2-015",
+      "type": "C",
+      "boxes": [
+        "S006-FOD-01",
+        "S006-HYG-01",
+        "S006-WAT-01",
+        "S006-WAT-02"
+      ],
+      "order": [
+        "S006"
+      ],
+      "start": 0.0,
+      "drone": "U08",
+      "battery": "C-BAT-02"
+    },
+    {
+      "id": "Q2-016",
+      "type": "C",
+      "boxes": [
+        "S002-FOD-01",
+        "S002-HYG-01",
+        "S002-WAT-01",
+        "S002-WAT-02",
+        "S002-WAT-04"
+      ],
+      "order": [
+        "S002"
+      ],
+      "start": 1429.5526244866223,
+      "drone": "U08",
+      "battery": "C-BAT-03"
+    },
+    {
+      "id": "Q2-017",
+      "type": "A",
+      "boxes": [
+        "S003-FOD-01",
+        "S003-WAT-03"
+      ],
+      "order": [
+        "S003"
+      ],
+      "start": 3623.5225484477814,
+      "drone": "U01",
+      "battery": "A-BAT-02"
+    },
+    {
+      "id": "Q2-018",
+      "type": "B",
+      "boxes": [
+        "S005-HYG-01",
+        "S005-WAT-01"
+      ],
+      "order": [
+        "S005"
+      ],
+      "start": 3025.8302571339727,
+      "drone": "U05",
+      "battery": "B-BAT-01"
+    },
+    {
+      "id": "Q2-019",
+      "type": "C",
+      "boxes": [
+        "S001-FOD-03",
+        "S001-HYG-02",
+        "S001-WAT-04",
+        "S001-WAT-06",
+        "S001-WAT-08",
+        "S010-FOD-01",
+        "S010-WAT-01"
+      ],
+      "order": [
+        "S001",
+        "S010"
+      ],
+      "start": 1560.1750458620231,
+      "drone": "U07",
+      "battery": "C-BAT-04"
+    },
+    {
+      "id": "Q2-020",
+      "type": "C",
+      "boxes": [
+        "S003-FOD-02",
+        "S003-HYG-01",
+        "S003-MED-01",
+        "S003-WAT-01",
+        "S003-WAT-02",
+        "S003-WAT-04",
+        "S007-HYG-01"
+      ],
+      "order": [
+        "S007",
+        "S003"
+      ],
+      "start": 3471.394790511177,
+      "drone": "U08",
+      "battery": "C-BAT-02"
+    },
+    {
+      "id": "Q2-021",
+      "type": "B",
+      "boxes": [
+        "S008-WAT-02",
+        "S008-MED-01",
+        "S008-FOD-01"
+      ],
+      "order": [
+        "S008"
+      ],
+      "start": 3824.6685613248897,
+      "drone": "U06",
+      "battery": "B-BAT-02"
+    },
+    {
+      "id": "Q2-022",
+      "type": "A",
+      "boxes": [
+        "S009-FOD-01",
+        "S009-WAT-01"
+      ],
+      "order": [
+        "S009"
+      ],
+      "start": 4489.044541323991,
+      "drone": "U04",
+      "battery": "A-BAT-06"
+    },
+    {
+      "id": "Q2-023",
+      "type": "B",
+      "boxes": [
+        "S011-FOD-01",
+        "S011-MED-01",
+        "S011-WAT-01"
+      ],
+      "order": [
+        "S011"
+      ],
+      "start": 4868.335198338835,
+      "drone": "U05",
+      "battery": "B-BAT-03"
+    },
+    {
+      "id": "Q2-024",
+      "type": "C",
+      "boxes": [
+        "S004-FOD-01",
+        "S004-HYG-01",
+        "S004-MED-01",
+        "S004-WAT-01",
+        "S004-WAT-02",
+        "S004-WAT-03"
+      ],
+      "order": [
+        "S004"
+      ],
+      "start": 3880.933558338453,
+      "drone": "U07",
+      "battery": "C-BAT-01"
+    }
+  ]
+}

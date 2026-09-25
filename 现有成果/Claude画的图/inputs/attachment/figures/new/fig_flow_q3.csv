@@ -1,0 +1,32 @@
+﻿record_type,id,x,y,text,kind,width,height,source_ref,source,target,label,route
+node,n0,0.265,0.91,"读取运输轨迹
+与中继物理条件",terminal,0.415,0.13,src/regroup_q3.py;results/q3.json;reports/q3_q4_validation.md,,,,
+node,n1,0.265,0.7050000000000001,"空间分析：直连缺口
+接入与回传
+有限候选位置形成中继轮换",process,0.415,0.13,src/regroup_q3.py;results/q3.json;reports/q3_q4_validation.md,,,,
+node,n2,0.265,0.5,"时间分析：建链与服务窗口
+实体周转、组件充电
+及运输可用时隙",process,0.415,0.13,src/regroup_q3.py;results/q3.json;reports/q3_q4_validation.md,,,,
+node,n3,0.265,0.29500000000000004,"两任务转箱／合并
+及机型、顺序候选
+窗口内重新安排兼容资源",process,0.415,0.13,src/regroup_q3.py;results/q3.json;reports/q3_q4_validation.md,,,,
+node,n4,0.265,0.09,"运输、时限及资源
+初筛可行？",decision,0.415,0.15,src/regroup_q3.py;results/q3.json;reports/q3_q4_validation.md,,,,
+node,n5,0.755,0.09,"重建完整闭区间与端点证书
+另建标称状态及瞬时记录",process,0.415,0.13,src/regroup_q3.py;results/q3.json;reports/q3_q4_validation.md,,,,
+node,n6,0.755,0.3633333333333334,"仅保留全部检查通过的改进
+到达有限轮数或时限后停止",process,0.415,0.13,src/regroup_q3.py;results/q3.json;reports/q3_q4_validation.md,,,,
+node,n7,0.755,0.6366666666666667,"独立复核：25 运输＋6 中继
+456 闭区间／635 边界",process,0.415,0.13,src/regroup_q3.py;results/q3.json;reports/q3_q4_validation.md,,,,
+node,n8,0.755,0.91,"输出任务、时刻
+与完整保障关系
+分别统计实际状态与备用关系",terminal,0.415,0.13,src/regroup_q3.py;results/q3.json;reports/q3_q4_validation.md,,,,
+edge,,,,,,,,,n0,n1,,direct
+edge,,,,,,,,,n1,n2,,direct
+edge,,,,,,,,,n2,n3,,direct
+edge,,,,,,,,,n3,n4,,direct
+edge,,,,,,,,,n4,n5,是,direct
+edge,,,,,,,,,n5,n6,,direct
+edge,,,,,,,,,n6,n7,,direct
+edge,,,,,,,,,n7,n8,,direct
+edge,,,,,,,,,n4,n2,否：下一候选,left

@@ -1,0 +1,28 @@
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\ZhuanZ\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ZhuanZ\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 48, in mapstar
+    return list(map(*args))
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\ZhuanZ\Desktop\Claude画的图\F01_余量敏感性\q1_rho_scan.py", line 91, in job_grid
+    r, err = call_solve(m, rho, priority)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\ZhuanZ\Desktop\Claude画的图\F01_余量敏感性\q1_rho_scan.py", line 75, in call_solve
+    raise RuntimeError(f"多次超时：r={rho} {priority}")
+RuntimeError: 多次超时：r=0.3 energy_sorties
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\ZhuanZ\Desktop\Claude画的图\F01_余量敏感性\q1_rho_scan.py", line 232, in <module>
+    main()
+  File "C:\Users\ZhuanZ\Desktop\Claude画的图\F01_余量敏感性\q1_rho_scan.py", line 213, in main
+    grid = a.get()
+           ^^^^^^^
+  File "C:\Users\ZhuanZ\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 774, in get
+    raise self._value
+RuntimeError: 多次超时：r=0.3 energy_sorties
