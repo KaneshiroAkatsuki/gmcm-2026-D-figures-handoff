@@ -1,0 +1,183 @@
+{
+  "figure_id": "F8",
+  "stem": "fig_q4_units",
+  "suggested_caption": "问题四不可拆单元：(a) 跨组中继整任务复制（14 个单元）；(b) 禁止复制（4 个单元）",
+  "section": "9.2.1 或 9.5.1",
+  "files": {
+    "script": "fig_q4_units.py",
+    "csv": "fig_q4_units.csv",
+    "png": "fig_q4_units.png",
+    "svg": "fig_q4_units.svg"
+  },
+  "size_cm": [
+    15.5,
+    7.4
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    874
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+  "sources": [
+    {
+      "path": "inputs/results/q3.json",
+      "sha256": "d19baf7f2faad5eac7bf481804aa266cf096723d667764acb9e687f781db96d3",
+      "sha256_repo": "ab9662042a106d8c8a91ec7589899b04d9f2f10802305cb0a8fa6ffaa935d883",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/results/q4.json",
+      "sha256": "e74f46ea1561c98160fb04d67db38db977247a0ae647e52b4baf3ca22d55f090",
+      "sha256_repo": "8553e05b2e06228ed1a4b56b4643579d3c46f694dd7c9c518ebfa7c2cd0428af",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/results/q4_no_copy_sensitivity.json",
+      "sha256": "b515395d81cd81f607f2c5a39a7a55be5b78edc28a65f025538cd677b1d611f3",
+      "sha256_repo": "90636023b4a0847d88f8a2648785ac9b68c37b77d3efc712816284cdde14b7a8",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/raw/无人机应急物资运输基础数据/调度中心与服务区.xlsx",
+      "sha256": "541a7af1ded08c9a3ff448480332cb5f6a54902f0afa6e9bcd50c1d2b2b34e38"
+    }
+  ],
+  "key_values": {
+    "units_main": [
+      [
+        "S001",
+        "S005"
+      ],
+      [
+        "S002"
+      ],
+      [
+        "S003"
+      ],
+      [
+        "S004"
+      ],
+      [
+        "S006"
+      ],
+      [
+        "S007"
+      ],
+      [
+        "S008"
+      ],
+      [
+        "S009"
+      ],
+      [
+        "S010"
+      ],
+      [
+        "S011"
+      ],
+      [
+        "S012"
+      ],
+      [
+        "S013"
+      ],
+      [
+        "S014"
+      ],
+      [
+        "S015"
+      ]
+    ],
+    "units_no_copy": [
+      [
+        "S001",
+        "S005",
+        "S009"
+      ],
+      [
+        "S002",
+        "S003",
+        "S004",
+        "S007",
+        "S008",
+        "S010",
+        "S012",
+        "S013",
+        "S014",
+        "S015"
+      ],
+      [
+        "S006"
+      ],
+      [
+        "S011"
+      ]
+    ],
+    "task_relay_pairs": 25,
+    "used_pairs": 22,
+    "backup_pairs": [
+      [
+        "Q3-006",
+        "R-002"
+      ],
+      [
+        "Q3-009",
+        "R-004"
+      ],
+      [
+        "Q3-017",
+        "R-002"
+      ]
+    ],
+    "same_sortie_edges": [
+      [
+        "S001",
+        "S005"
+      ]
+    ],
+    "relay_site_links_used": 20,
+    "relay_site_links_backup_only": [
+      "R-002-S004",
+      "R-002-S008"
+    ],
+    "relay_serves": {
+      "R-001": [
+        "S002",
+        "S010",
+        "S012",
+        "S013",
+        "S014"
+      ],
+      "R-002": [
+        "S002",
+        "S003",
+        "S004",
+        "S007",
+        "S008",
+        "S015"
+      ],
+      "R-003": [
+        "S001",
+        "S005",
+        "S009"
+      ],
+      "R-004": [
+        "S002",
+        "S004",
+        "S007",
+        "S013"
+      ],
+      "R-005": [
+        "S008"
+      ],
+      "R-006": [
+        "S001",
+        "S005",
+        "S009"
+      ]
+    }
+  },
+  "notes": "实线为同一运输架次访问的服务区；紫色菱形为中继任务的悬停点（标注中继任务编号，同一点位的任务合并标注），虚线连向它实际保障的服务区，点线为只作备用的保障关系；共用同一中继的服务区经该菱形相通。(a) 中继任务可跨组复制，只有同一架次把 S001 与 S005 绑成一个单元，其余 13 个服务区各自成单元；(b) 不允许复制时，共用中继的服务区必须同组，合并为 4 个单元（色块）。"
+}

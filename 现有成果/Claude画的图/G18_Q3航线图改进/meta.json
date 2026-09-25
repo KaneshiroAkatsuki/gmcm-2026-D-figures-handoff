@@ -1,0 +1,51 @@
+{
+  "figure_id": "图18（改进版）",
+  "stem": "fig_q3_routes",
+  "suggested_caption": "问题三运输航线、巡航段通信保障方式与中继悬停点（底图为 DEM 山体阴影）",
+  "section": "8.6.2",
+  "files": {
+    "script": "fig_q3_routes.py",
+    "csv": "fig_q3_routes.csv",
+    "png": "fig_q3_routes.png",
+    "svg": "fig_q3_routes.svg"
+  },
+  "size_cm": [
+    15.5,
+    11.4
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    1346
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+  "sources": [
+    {
+      "path": "inputs/attachment/figures/src/fig_q3_routes.csv",
+      "sha256": "57351abe25aaa95d00452cfe5428cc82f2f0f728094cbcfc1c3d60443a5c0c6f",
+      "sha256_repo": "610f0b505b7e2d7093a3f225922b617e6a5d7a55a69e81e5dc12744b9c5a7695",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/results/q3.json",
+      "sha256": "d19baf7f2faad5eac7bf481804aa266cf096723d667764acb9e687f781db96d3",
+      "sha256_repo": "ab9662042a106d8c8a91ec7589899b04d9f2f10802305cb0a8fa6ffaa935d883",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/raw/镇龙乡地理空间数据/镇龙乡及周边地理数据/数字高程模型数据（DEM）/镇龙乡及周边30米DEM.tif",
+      "sha256": "741fe6de0b2bcaffd0f4007f574ee698d46197094f52cc954b532c4f90fc7c03"
+    }
+  ],
+  "key_values": {
+    "legs": 51,
+    "distinct_leg_pairs": 16,
+    "relay_points": 5,
+    "cruise_state_segments": {
+      "direct": 215,
+      "relay": 86
+    }
+  },
+  "notes": "同一航段被多个架次或往返重复使用时，橙色表示该位置至少一次经中继保障。另附 fig_q3_routes_通信分段.csv 记录全部巡航状态段。"
+}

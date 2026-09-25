@@ -41,9 +41,51 @@ HATCH = {"A": "", "B": "////", "C": "xx"}
 TYPE_NAME = {"A": "A 型", "B": "B 型", "C": "C 型"}
 
 
+FONT_NOTE = {
+    "formal": "中文宋体（SimSun），英文与数字 Times New Roman，记号 STIX",
+    "substitute": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；"
+                  "在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+}
+FONT_MODE = None
+
+
+def _noto_serif_sc():
+    """从系统 Noto Serif CJK 字体集中取出简体中文字面，注册给 matplotlib（字体集默认只暴露日文字面）。"""
+    import tempfile
+    from matplotlib import font_manager as fm
+    ttc = [f.fname for f in fm.fontManager.ttflist if Path(f.fname).name == "NotoSerifCJK-Regular.ttc"]
+    if not ttc:
+        return None
+    out = Path(tempfile.gettempdir()) / "figkit_fonts" / "NotoSerifCJKsc-Regular.otf"
+    if not out.exists():
+        from fontTools.ttLib import TTCollection
+        out.parent.mkdir(parents=True, exist_ok=True)
+        coll = TTCollection(ttc[0])
+        face = next(f for f in coll.fonts if f["name"].getDebugName(1) == "Noto Serif CJK SC")
+        tmp = out.with_suffix(".part")
+        face.save(tmp)
+        tmp.replace(out)
+    fm.fontManager.addfont(str(out))
+    return "Noto Serif CJK SC"
+
+
+def font_family():
+    """正式字体（宋体、Times New Roman）齐全时使用正式字体，否则使用开源替代字体。"""
+    global FONT_MODE
+    from matplotlib import font_manager as fm
+    names = {f.name for f in fm.fontManager.ttflist}
+    if {"Times New Roman", "SimSun"} <= names:
+        FONT_MODE = "formal"
+        return ["Times New Roman", "SimSun", "STIXGeneral"]
+    cjk = _noto_serif_sc()
+    assert cjk and "Liberation Serif" in names, "缺少宋体/Times New Roman，也缺少替代字体 Noto Serif CJK 与 Liberation Serif"
+    FONT_MODE = "substitute"
+    return ["Liberation Serif", cjk, "STIXGeneral"]
+
+
 def setup():
     plt.rcParams.update({
-        "font.family": ["Times New Roman", "SimSun", "STIXGeneral"],
+        "font.family": font_family(),
         "font.size": 10.5, "axes.titlesize": 10.5, "axes.labelsize": 10.5,
         "xtick.labelsize": 10, "ytick.labelsize": 10, "legend.fontsize": 10,
         "axes.unicode_minus": False, "axes.spines.top": False, "axes.spines.right": False,
@@ -205,6 +247,21 @@ def sha256(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def source_digest(path):
+    """源文件指纹。冻结记录与审查包按原始 CRLF 换行计算 SHA-256；本仓库中的文本副本换行被规范为 LF，
+    因此对不含回车的文本文件按 CRLF 还原后计算 sha256（与冻结记录一致），同时给出仓库副本本身的 sha256_repo。"""
+    b = Path(path).read_bytes()
+    out = {"path": rel(path), "sha256": hashlib.sha256(b).hexdigest()}
+    if b"\0" not in b and b"\r" not in b and b"\n" in b:
+        try:
+            b.decode("utf-8")
+        except UnicodeDecodeError:
+            return out
+        out = {"path": out["path"], "sha256": hashlib.sha256(b.replace(b"\n", b"\r\n")).hexdigest(),
+               "sha256_repo": out["sha256"], "line_ending": "按 CRLF 计算"}
+    return out
+
+
 def rel(path):
     return Path(path).resolve().relative_to(ROOT).as_posix()
 
@@ -280,11 +337,27 @@ def save(fig, here, stem, *, figure_id, caption, sources, key_values, notes="", 
         "dpi": 300,
         "pixel_size": px,
         "min_font_pt": min_pt,
-        "fonts": "中文宋体（SimSun），英文与数字 Times New Roman，记号 STIX",
-        "sources": [{"path": rel(p), "sha256": sha256(p)} for p in sources],
+        "fonts": FONT_NOTE[FONT_MODE or "formal"],
+        "sources": [source_digest(p) for p in sources],
         "key_values": key_values,
         "notes": notes,
     }
     (here / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"{figure_id} {stem}: {px[0]}x{px[1]} px, 最小字号 {min_pt} pt")
     return meta
+
+
+ORIG_FIG = ATTACH / "figures"
+
+
+def copy_source_csv(src, here, stem):
+    """改进版沿用原图源的同名 CSV：原样复制到本图文件夹，作为图中数值的记录。"""
+    import shutil
+    dst = Path(here) / f"{stem}.csv"
+    shutil.copyfile(src, dst)
+    return dst
+
+
+def read_source_csv(src):
+    with Path(src).open(encoding="utf-8-sig", newline="") as f:
+        return list(csv.DictReader(f))

@@ -1,0 +1,41 @@
+{
+ "font_environment": "substitute",
+ "figure_font_environment": {
+  "F01_余量敏感性": "substitute",
+  "F02_连续通信证明原理": "formal",
+  "F03_Q2运输路线": "formal",
+  "F04_电池组件日历": "formal",
+  "F05_Q4缺口形成机制": "formal",
+  "F06_直连遮挡与中继布设": "substitute",
+  "F07_单架次时间构成": "substitute",
+  "F08_Q4不可拆单元": "substitute",
+  "F09_Q4缺口分布": "substitute",
+  "F10_逐箱送达对比": "substitute",
+  "G02_站点图改进": "substitute",
+  "G06_充电曲线改进": "substitute",
+  "G13_Q2时间线改进": "substitute",
+  "G18_Q3航线图改进": "substitute",
+  "G19_Q3时间线改进": "substitute",
+  "G20_通信状态图改进": "substitute",
+  "G22_回传裕量改进": "substitute",
+  "G24_分区图改进": "substitute",
+  "G25_资源需求与缺口合并": "substitute"
+ },
+ "files_compared_bytewise": 61,
+ "png_count_bytewise": 15,
+ "png_byte_identical": true,
+ "png_mismatch": [],
+ "other_mismatch": [],
+ "missing_or_extra": [],
+ "cross_font_environment_checks": {
+  "F02_连续通信证明原理/fig_comm_proof.csv": "数值最大相对差 1.4e-14",
+  "F02_连续通信证明原理/meta.json": "key_values 相同",
+  "F03_Q2运输路线/fig_q2_routes.csv": "逐字节相同",
+  "F03_Q2运输路线/meta.json": "key_values 相同",
+  "F04_电池组件日历/fig_energy_calendar.csv": "逐字节相同",
+  "F04_电池组件日历/meta.json": "key_values 相同",
+  "F05_Q4缺口形成机制/fig_q4_gap_mechanism.csv": "逐字节相同",
+  "F05_Q4缺口形成机制/meta.json": "key_values 相同"
+ },
+ "anonymity_hits": []
+}

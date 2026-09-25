@@ -1,0 +1,58 @@
+{
+  "figure_id": "F9",
+  "stem": "fig_q4_shortage_hist",
+  "suggested_caption": "问题四各分区方案的缺口件数分布（纵轴为对数刻度）",
+  "section": "9.3.3（替代表14）",
+  "files": {
+    "script": "fig_q4_shortage_hist.py",
+    "csv": "fig_q4_shortage_hist.csv",
+    "png": "fig_q4_shortage_hist.png",
+    "svg": "fig_q4_shortage_hist.svg"
+  },
+  "size_cm": [
+    15.5,
+    6.6
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    779
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+  "sources": [
+    {
+      "path": "inputs/results/q4.json",
+      "sha256": "e74f46ea1561c98160fb04d67db38db977247a0ae647e52b4baf3ca22d55f090",
+      "sha256_repo": "8553e05b2e06228ed1a4b56b4643579d3c46f694dd7c9c518ebfa7c2cd0428af",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/results/q4_no_copy_sensitivity.json",
+      "sha256": "b515395d81cd81f607f2c5a39a7a55be5b78edc28a65f025538cd677b1d611f3",
+      "sha256_repo": "90636023b4a0847d88f8a2648785ac9b68c37b77d3efc712816284cdde14b7a8",
+      "line_ending": "按 CRLF 计算"
+    }
+  ],
+  "key_values": {
+    "K2": {
+      "enumerated_main": 8191,
+      "enumerated_no_copy": 7,
+      "min_shortage_main": 2,
+      "count_at_min_main": 3,
+      "min_shortage_no_copy": 2,
+      "count_at_min_no_copy": 1,
+      "max_shortage_main": 17
+    },
+    "K3": {
+      "enumerated_main": 788970,
+      "enumerated_no_copy": 6,
+      "min_shortage_main": 4,
+      "count_at_min_main": 4,
+      "min_shortage_no_copy": 6,
+      "count_at_min_no_copy": 1,
+      "max_shortage_main": 29
+    }
+  },
+  "notes": "柱为主口径（14 个不可拆单元，跨组中继整任务复制）的全部分区方案；空心菱形为禁止复制口径（4 个单元）。K=2 共 8191 个方案，最小缺口 2 件的 3 个；K=3 共 788970 个方案，最小缺口 4 件的 4 个；禁止复制口径 K=2、K=3 分别只有 7、6 个方案，最小缺口 2、6 件。"
+}

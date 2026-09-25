@@ -1,0 +1,45 @@
+{
+  "figure_id": "图22（改进版）",
+  "stem": "q3_backhaul",
+  "suggested_caption": "六个中继任务的回传裕量下界（横轴在 1.1～5.2 dB 处断开）",
+  "section": "8.6.3",
+  "files": {
+    "script": "q3_backhaul.py",
+    "csv": "q3_backhaul.csv",
+    "png": "q3_backhaul.png",
+    "svg": "q3_backhaul.svg"
+  },
+  "size_cm": [
+    15.5,
+    6.4
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    755
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+  "sources": [
+    {
+      "path": "inputs/results/q3.json",
+      "sha256": "d19baf7f2faad5eac7bf481804aa266cf096723d667764acb9e687f781db96d3",
+      "sha256_repo": "ab9662042a106d8c8a91ec7589899b04d9f2f10802305cb0a8fa6ffaa935d883",
+      "line_ending": "按 CRLF 计算"
+    }
+  ],
+  "key_values": {
+    "relay_certificates": 6,
+    "margins_db": {
+      "R-001": 0.8067580100836835,
+      "R-002": 5.356908165961428,
+      "R-003": 0.9186150540954543,
+      "R-004": 0.44735127968330346,
+      "R-005": 0.11289935703629794,
+      "R-006": 0.44735127968330346
+    },
+    "minimum_backhaul_bound_db": 0.11289935703629794,
+    "guard_db": 0.01
+  },
+  "notes": "只展示中继至地面站的回传链路下界；R-004 与 R-006 在同一悬停点，下界相同。"
+}

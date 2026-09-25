@@ -1,0 +1,112 @@
+{
+  "figure_id": "F6",
+  "stem": "fig_direct_link_map",
+  "suggested_caption": "G01 直连可用范围与中继布设（机体离地 30 m 的示意）",
+  "section": "5.5 或 8.4.2（也可与图2 合并）",
+  "files": {
+    "script": "fig_direct_link_map.py",
+    "csv": "fig_direct_link_map.csv",
+    "png": "fig_direct_link_map.png",
+    "svg": "fig_direct_link_map.svg"
+  },
+  "size_cm": [
+    15.5,
+    11.8
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    1393
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+  "sources": [
+    {
+      "path": "inputs/results/q3.json",
+      "sha256": "d19baf7f2faad5eac7bf481804aa266cf096723d667764acb9e687f781db96d3",
+      "sha256_repo": "ab9662042a106d8c8a91ec7589899b04d9f2f10802305cb0a8fa6ffaa935d883",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/attachment/data/q3_relays.csv",
+      "sha256": "41c9db739d4aa323e2767b8d22b93bda848327e4101f4c4b7beb2359cac60316",
+      "sha256_repo": "8f6fc3caebadb175394baa062ab69da83d63109f50a458d49271fc483a8a6eab",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/attachment/src/dcore.py",
+      "sha256": "725eee10b593475a9c2a548a3bf60c6a56828478ddf661ffcdc3a80d7a3c7978",
+      "sha256_repo": "4fd14384cf70266ecae92d232d2be46b7e79315962606d81da15fd3512b4293f",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/raw/镇龙乡地理空间数据/镇龙乡及周边地理数据/数字高程模型数据（DEM）/镇龙乡及周边30米DEM.tif",
+      "sha256": "741fe6de0b2bcaffd0f4007f574ee698d46197094f52cc954b532c4f90fc7c03"
+    },
+    {
+      "path": "inputs/raw/无人机应急物资运输基础数据/调度中心与服务区.xlsx",
+      "sha256": "541a7af1ded08c9a3ff448480332cb5f6a54902f0afa6e9bcd50c1d2b2b34e38"
+    },
+    {
+      "path": "inputs/raw/无人机应急物资运输基础数据/通信链路参数.xlsx",
+      "sha256": "1860d153199e7ae460ba36e83b673374e640e19de91ea167f2877271001f5f81"
+    }
+  ],
+  "key_values": {
+    "budget_db": 122,
+    "obstruction_db": 10,
+    "radius_clear_m": 12510.905920255285,
+    "radius_blocked_m": 3956.295830009162,
+    "body_agl_m": 30.0,
+    "gateway_agl_m": 20,
+    "grid_step_pixels": 3,
+    "grid_points": 18816,
+    "share_clear": 0.019505,
+    "share_blocked_near": 0.220291,
+    "share_no_direct": 0.760204,
+    "relay_points": {
+      "P1": {
+        "relay_tasks": [
+          "R-002"
+        ],
+        "lon": 109.20158800618006,
+        "lat": 23.022054236204937,
+        "z": 597.3013305664062
+      },
+      "P2": {
+        "relay_tasks": [
+          "R-005"
+        ],
+        "lon": 109.21621985309004,
+        "lat": 23.062688444819756,
+        "z": 388.18408203125
+      },
+      "P3": {
+        "relay_tasks": [
+          "R-004",
+          "R-006"
+        ],
+        "lon": 109.24400343933368,
+        "lat": 23.06085685410639,
+        "z": 356.40435791015625
+      },
+      "P4": {
+        "relay_tasks": [
+          "R-003"
+        ],
+        "lon": 109.2835263488759,
+        "lat": 23.0229572186186,
+        "z": 465.7570495605469
+      },
+      "P5": {
+        "relay_tasks": [
+          "R-001"
+        ],
+        "lon": 109.28450180533656,
+        "lat": 23.022054236204937,
+        "z": 536.7926635742188
+      }
+    }
+  },
+  "notes": "覆盖层按“机体位于地面以上 30 m”的固定高度假设计算，每 3×3 个 DEM 像元取中心像元一点；双向门限 122 dB，遮挡加 10 dB，距离为三维距离。本图只是示意，不代替第 8.5 节的连续通信证明。紫色连线为中继悬停点到 G01 的回传链路；P3 上先后有 R-004 与 R-006 两个中继任务。在该高度下，3.956 km 圈外几乎全部被地形遮挡，12.511 km 圈位于图幅以外。"
+}
