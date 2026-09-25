@@ -1,0 +1,48 @@
+{
+  "figure_id": "图19（改进版）",
+  "stem": "fig_q3_timeline",
+  "suggested_caption": "问题三运输无人机与中继无人机任务时间线（运输编号省略“Q3-”；中继服务窗叠加于任务跨度）",
+  "section": "8.6.2",
+  "files": {
+    "script": "fig_q3_timeline.py",
+    "csv": "fig_q3_timeline.csv",
+    "png": "fig_q3_timeline.png",
+    "svg": "fig_q3_timeline.svg"
+  },
+  "size_cm": [
+    15.5,
+    8.6
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    1015
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+  "sources": [
+    {
+      "path": "inputs/attachment/figures/src/fig_q3_timeline.csv",
+      "sha256": "98e9bd73e0d8ab120ee3b619acd5fa0ee92822674b0252c7b937ec55bc7ed1c6",
+      "sha256_repo": "318f6319d18746e1e507394171aae9d075a9745636bb0569613882baae9e8e3f",
+      "line_ending": "按 CRLF 计算"
+    }
+  ],
+  "key_values": {
+    "transport_tasks": 25,
+    "entities": [
+      "U01",
+      "U02",
+      "U03",
+      "U04",
+      "U05",
+      "U06",
+      "U07",
+      "U08",
+      "R01",
+      "R02"
+    ],
+    "service_windows": 6
+  },
+  "notes": "与原图相比只删去图内标题和注释，数据与画法不变。"
+}

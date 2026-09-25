@@ -8,18 +8,23 @@
 3. 最少架次的全部跳变点：对每个服务区，以正式候选生成函数给出的全部候选返航荷电状态
    作为可能的变化点，在这些点上调用 q1_solve（单服务区视图）二分定位。
 4. 两种目标顺序下各服务区最优值的精确分段：从 r=0.20 起求解，所得方案在其最小返航
-   荷电状态之前保持最优，越过后在下一个候选阈值处重新求解，直至不可行或 r>0.40。
+   荷电状态之前保持最优，越过后在下一个候选阈值处重新求解，直至不可行或分段覆盖到 r=0.40。
 结果写入同目录 q1_rho_scan.json。只读输入，不修改附件。
+
+执行方式：默认串行（--jobs 1）。正式 q1_solve 内每次整数规划的时限固定为 60 s，多进程争用 CPU 时
+全模型求解可能超时，因此默认不并行。每完成一个作业即写入断点文件 q1_rho_scan_part.json，
+中断后再次运行会跳过已完成的作业；全部完成后删除断点文件。每个作业都检查求解日志，
+所有阶段必须为已证明最优（status=0，相对间隙不超过 1e-9 的舍入量级），否则重试，重试仍不满足即报错停止。
 """
 import sys
 sys.dont_write_bytecode = True
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
 import copy
-import hashlib
 import json
 import math
 import time
+import argparse
 from bisect import bisect_right
 from multiprocessing import Pool
 from pathlib import Path
@@ -33,6 +38,7 @@ RHO_GRID = [round(0.20 + 0.01 * k, 2) for k in range(21)]
 RHO_FINE = [round(0.20 + 0.0005 * k, 4) for k in range(401)]
 RHO_MAX = 0.40
 PRIORITIES = ["sorties_energy", "energy_sorties"]
+GAP_TOL = 1e-9  # 求解器报告的相对间隙只允许浮点舍入量级
 _M = None
 
 
@@ -63,16 +69,24 @@ def thresholds(m, site):
 
 
 def call_solve(m, rho, priority):
-    """调用正式 q1_solve；求解器因时限未给出解时重试，绝不把超时记为不可行。"""
+    """调用正式 q1_solve；未在时限内证明最优时重试，绝不把超时记为不可行，也不接受未证明最优的解。"""
     from q1_engine import q1_solve
-    for attempt in range(4):
+    last = ""
+    for attempt in range(3):
         try:
-            return q1_solve(m, rho=rho, priority=priority), None
+            r = q1_solve(m, rho=rho, priority=priority)
         except (ValueError, RuntimeError) as e:
             msg = str(e)
             if "Time limit" not in msg:
                 return None, msg[:200]
-    raise RuntimeError(f"多次超时：r={rho} {priority}")
+            last = msg[:200]
+            continue
+        bad = [(g["site"], s["status"], s["gap"]) for g in r["solver_log"] for s in g["stages"]
+               if s["status"] != 0 or s["gap"] > GAP_TOL]
+        if not bad:
+            return r, None
+        last = f"未证明最优：{bad}"
+    raise RuntimeError(f"多次未在时限内证明最优：r={rho} {priority}；{last}")
 
 
 def solve_site(m, site, rho, priority):
@@ -154,7 +168,7 @@ def job_trace(args):
     T = thresholds(m, site)
     rho = 0.20
     segs = []
-    while rho <= RHO_MAX + 1e-12:
+    while True:
         s = solve_site(m, site, rho, priority)
         if not s["feasible"]:
             segs.append({"r_from": rho, "r_to": None, "feasible": False, "reason": s["reason"]})
@@ -162,6 +176,8 @@ def job_trace(args):
         hi = s["min_soc"]
         segs.append({"r_from": rho, "r_to": hi, "feasible": True, "sorties": s["sorties"],
                      "energy": s["energy"], "types": s["types"]})
+        if hi >= RHO_MAX:          # 该段已覆盖到扫描上限
+            break
         k = bisect_right(T, max(hi, rho) + 1e-13)
         if k >= len(T):
             segs.append({"r_from": hi, "r_to": None, "feasible": False, "reason": "no candidate above threshold"})
@@ -190,41 +206,68 @@ def payload_tables(m):
     return out
 
 
-def digest(p):
-    return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+def source_entry(p):
+    """与各图 meta.json 相同的源文件指纹口径（文本文件按原始 CRLF 换行计算）。"""
+    sys.path.insert(0, str(ROOT / "lib"))
+    import figkit
+    return figkit.source_digest(p)
+
+
+def run_jobs(name, func, jobs, part, n_proc):
+    """按作业执行并逐个写入断点文件；已完成的作业直接取用。"""
+    done = part.setdefault(name, {})
+    todo = [j for j in jobs if json.dumps(j, ensure_ascii=False) not in done]
+    if todo:
+        print(f"[{name}] 已完成 {len(jobs) - len(todo)}，待算 {len(todo)}", flush=True)
+
+    def keep(j, r):
+        done[json.dumps(j, ensure_ascii=False)] = r
+        PART.write_text(json.dumps(part, ensure_ascii=False, indent=1), encoding="utf-8")
+        print(f"  [{name}] {j} 完成（{len(done)}/{len(jobs)}）", flush=True)
+
+    if n_proc <= 1:
+        for j in todo:
+            keep(j, func(j))
+    else:
+        with Pool(processes=n_proc) as pool:
+            for j, r in zip(todo, pool.imap(func, todo, chunksize=1)):
+                keep(j, r)
+    return [done[json.dumps(j, ensure_ascii=False)] for j in jobs]
+
+
+PART = HERE / "q1_rho_scan_part.json"
 
 
 def main():
+    ap = argparse.ArgumentParser(description="问题一返航余量敏感性重算")
+    ap.add_argument("--jobs", type=int, default=1, help="并行进程数，默认 1（串行，避免求解时限内争用 CPU）")
+    a = ap.parse_args()
     t0 = time.time()
     m = model()
     site_list = sites(m)
-    jobs_grid = [(r, p) for r in RHO_GRID for p in PRIORITIES]
-    jobs_trace = [(s, p) for s in site_list for p in PRIORITIES]
-    with Pool(processes=6) as pool:
-        b = pool.map_async(job_jumps, site_list, chunksize=1)
-        c = pool.map_async(job_trace, jobs_trace, chunksize=1)
-        a = pool.map_async(job_grid, jobs_grid, chunksize=1)
-        payload = payload_tables(m)
-        part = HERE / "q1_rho_scan_part.json"
-        jumps = b.get()
-        part.write_text(json.dumps({"min_sortie_jumps": jumps}, ensure_ascii=False, indent=1), encoding="utf-8")
-        traces = c.get()
-        part.write_text(json.dumps({"min_sortie_jumps": jumps, "value_traces": traces}, ensure_ascii=False, indent=1), encoding="utf-8")
-        grid = a.get()
-    part.unlink()
+    part = json.loads(PART.read_text(encoding="utf-8")) if PART.exists() else {}
+    part = {k: v for k, v in part.items() if isinstance(v, dict)}
+    jobs_grid = [[r, p] for r in RHO_GRID for p in PRIORITIES]
+    jobs_trace = [[s, p] for s in site_list for p in PRIORITIES]
+    payload = payload_tables(m)
+    jumps = run_jobs("min_sortie_jumps", job_jumps, site_list, part, a.jobs)
+    traces = run_jobs("value_traces", job_trace, jobs_trace, part, a.jobs)
+    grid = run_jobs("grid_solutions", job_grid, jobs_grid, part, a.jobs)
     src_files = [SRC / "q1_engine.py", SRC / "dcore.py"] + sorted((SRC.parent / "data" / "original").rglob("*.xlsx")) \
         + sorted((SRC.parent / "data" / "original").rglob("*.tif"))
     out = {
         "program": "附件 src/q1_engine.py 的 q1_solve 与 candidates，src/dcore.py 的 Model.max_payload 与 leg",
-        "program_sources": [{"path": p.resolve().relative_to(ROOT).as_posix(), "sha256": digest(p)} for p in src_files],
+        "program_sources": [source_entry(p) for p in src_files],
         "r_grid": RHO_GRID,
         "grid_solutions": grid,
         "min_sortie_jumps": jumps,
         "value_traces": traces,
         "safe_payload": payload,
+        "solver_check": "全部整数规划阶段均为已证明最优（status=0，相对间隙不超过 1e-9）",
         "note": "跳变点 after_r 表示余量超过该值（严格大于）后最少架次改变；该值本身仍可取得原架次。",
     }
     (HERE / "q1_rho_scan.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    PART.unlink()
     print("完成，用时", round(time.time() - t0, 1), "s")
 
 

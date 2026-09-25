@@ -1,0 +1,60 @@
+{
+  "figure_id": "F10",
+  "stem": "fig_box_delivery",
+  "suggested_caption": "问题二与问题三逐箱送达时刻对比",
+  "section": "8.7（配合 S1；附录表20、21 可压缩）",
+  "files": {
+    "script": "fig_box_delivery.py",
+    "csv": "fig_box_delivery.csv",
+    "png": "fig_box_delivery.png",
+    "svg": "fig_box_delivery.svg"
+  },
+  "size_cm": [
+    15.5,
+    8.6
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    1015
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+  "sources": [
+    {
+      "path": "inputs/results/q2.json",
+      "sha256": "b73d4c7d7fb0025bfa59cd36c4b3b158f467cf5375a044303eaa1412819f03cc",
+      "sha256_repo": "c1b2606256b16de495921519beb57b42361ad072406bafea7135f46c0fb23843",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/results/q3.json",
+      "sha256": "d19baf7f2faad5eac7bf481804aa266cf096723d667764acb9e687f781db96d3",
+      "sha256_repo": "ab9662042a106d8c8a91ec7589899b04d9f2f10802305cb0a8fa6ffaa935d883",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/raw/无人机应急物资运输基础数据/物资需求与配送时限.xlsx",
+      "sha256": "5a3346159ceddcf585859d270b8f62114b388a1f737fbe64ffde0ee1fdc8170a"
+    }
+  ],
+  "key_values": {
+    "weighted_mean_delivery_s": {
+      "Q2": 2931.433903,
+      "Q3": 3456.307272
+    },
+    "mean_delivery_s": {
+      "Q2": 3151.844364,
+      "Q3": 3809.84801
+    },
+    "weighted_gap_Q3_minus_Q2_s": 524.873369,
+    "min_hard_slack_s": {
+      "Q2": 225.627624,
+      "Q3": 74.571332
+    },
+    "boxes": 80,
+    "boxes_with_hard_due": 31,
+    "expected_above_axis": 8
+  },
+  "notes": "送达时刻为该站整批交接完成时刻；灰色短线为期望送达时刻，红色短线为硬截止（与期望时刻相同时红线覆盖灰线）；期望时刻超过 12600 s 的 8 箱在纵轴顶端以灰色三角示意。加权平均以应急优先系数为权。"
+}

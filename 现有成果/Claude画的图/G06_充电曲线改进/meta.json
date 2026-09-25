@@ -1,0 +1,54 @@
+{
+  "figure_id": "图6（改进版）",
+  "stem": "fig_charging",
+  "suggested_caption": "两阶段等效充电曲线（A、B、C 型电池与中继能源组件；SOC=0.9 处为分段点）",
+  "section": "5.4.2",
+  "files": {
+    "script": "fig_charging.py",
+    "csv": "fig_charging.csv",
+    "png": "fig_charging.png",
+    "svg": "fig_charging.svg"
+  },
+  "size_cm": [
+    15.5,
+    7.8
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    921
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+  "sources": [
+    {
+      "path": "inputs/raw/无人机应急物资运输基础数据/运输无人机数据.xlsx",
+      "sha256": "9296a657c07e042afba6aeea7999665d9cd24e00b592fd6c269de6e338480dcb"
+    },
+    {
+      "path": "inputs/raw/无人机应急物资运输基础数据/中继无人机数据.xlsx",
+      "sha256": "be52643ff29419233e6a141dca03a04160a8af551cab36d8c49b51bb836bea04"
+    },
+    {
+      "path": "inputs/attachment/figures/src/fig_charging.csv",
+      "sha256": "a19d2a2e14725333ae4f8c621e6b38e41cbdff792f47bc93ecca07aaaa8b2cb4",
+      "sha256_repo": "98553faa3780cedeb48f9b439b19328ccb10b156499371bf722835b135484591",
+      "line_ending": "按 CRLF 计算"
+    }
+  ],
+  "key_values": {
+    "T_full_s": {
+      "A": 1800.0,
+      "B": 2400.0,
+      "C": 3000.0,
+      "R": 1800.0
+    },
+    "knee_s": {
+      "A": 629.9999999999998,
+      "B": 839.9999999999998,
+      "C": 1049.9999999999995,
+      "R": 629.9999999999998
+    }
+  },
+  "notes": "A 型电池与中继能源组件的 T 同为 1800 s，两条曲线重合（组件画为虚线叠在 A 型实线上）。"
+}

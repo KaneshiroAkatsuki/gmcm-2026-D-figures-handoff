@@ -1,0 +1,44 @@
+{
+  "figure_id": "图2（改进版）",
+  "stem": "site_map",
+  "suggested_caption": "起降点与服务区需求的空间分布（底图为 DEM 山体阴影；气泡面积对应物资总质量）",
+  "section": "5.1.1",
+  "files": {
+    "script": "site_map.py",
+    "csv": "site_map.csv",
+    "png": "site_map.png",
+    "svg": "site_map.svg"
+  },
+  "size_cm": [
+    15.5,
+    11.2
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    1322
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+  "sources": [
+    {
+      "path": "inputs/attachment/data/site_demand.csv",
+      "sha256": "ad8ad856454fb3deb86c7267153164a93d503732479bae68e53c47137857bc68",
+      "sha256_repo": "caa3ff2419dbe1b89b749a9026dba332cfeb6421c03311c8435cb57d8e9eed96",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/raw/镇龙乡地理空间数据/镇龙乡及周边地理数据/数字高程模型数据（DEM）/镇龙乡及周边30米DEM.tif",
+      "sha256": "741fe6de0b2bcaffd0f4007f574ee698d46197094f52cc954b532c4f90fc7c03"
+    },
+    {
+      "path": "inputs/raw/无人机应急物资运输基础数据/调度中心与服务区.xlsx",
+      "sha256": "541a7af1ded08c9a3ff448480332cb5f6a54902f0afa6e9bcd50c1d2b2b34e38"
+    }
+  ],
+  "key_values": {
+    "service_sites": 15,
+    "mass_total_kg": 758.0
+  },
+  "notes": "气泡面积与质量成线性关系（与原图相同）；底图为原题 30 m DEM 山体阴影（光源方位 315°、高度角 45°）。"
+}

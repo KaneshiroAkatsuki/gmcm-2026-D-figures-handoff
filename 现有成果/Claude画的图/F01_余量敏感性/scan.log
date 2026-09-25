@@ -1,28 +1,91 @@
-multiprocessing.pool.RemoteTraceback: 
-"""
-Traceback (most recent call last):
-  File "C:\Users\ZhuanZ\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 125, in worker
-    result = (True, func(*args, **kwds))
-                    ^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ZhuanZ\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 48, in mapstar
-    return list(map(*args))
-           ^^^^^^^^^^^^^^^^
-  File "C:\Users\ZhuanZ\Desktop\Claude画的图\F01_余量敏感性\q1_rho_scan.py", line 91, in job_grid
-    r, err = call_solve(m, rho, priority)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\ZhuanZ\Desktop\Claude画的图\F01_余量敏感性\q1_rho_scan.py", line 75, in call_solve
-    raise RuntimeError(f"多次超时：r={rho} {priority}")
-RuntimeError: 多次超时：r=0.3 energy_sorties
-"""
-
-The above exception was the direct cause of the following exception:
-
-Traceback (most recent call last):
-  File "C:\Users\ZhuanZ\Desktop\Claude画的图\F01_余量敏感性\q1_rho_scan.py", line 232, in <module>
-    main()
-  File "C:\Users\ZhuanZ\Desktop\Claude画的图\F01_余量敏感性\q1_rho_scan.py", line 213, in main
-    grid = a.get()
-           ^^^^^^^
-  File "C:\Users\ZhuanZ\AppData\Local\Programs\Python\Python311\Lib\multiprocessing\pool.py", line 774, in get
-    raise self._value
-RuntimeError: 多次超时：r=0.3 energy_sorties
+[min_sortie_jumps] 已完成 0，待算 15
+  [min_sortie_jumps] S001 完成（1/15）
+  [min_sortie_jumps] S002 完成（2/15）
+  [min_sortie_jumps] S003 完成（3/15）
+  [min_sortie_jumps] S004 完成（4/15）
+  [min_sortie_jumps] S005 完成（5/15）
+  [min_sortie_jumps] S006 完成（6/15）
+  [min_sortie_jumps] S007 完成（7/15）
+  [min_sortie_jumps] S008 完成（8/15）
+  [min_sortie_jumps] S009 完成（9/15）
+  [min_sortie_jumps] S010 完成（10/15）
+  [min_sortie_jumps] S011 完成（11/15）
+  [min_sortie_jumps] S012 完成（12/15）
+  [min_sortie_jumps] S013 完成（13/15）
+  [min_sortie_jumps] S014 完成（14/15）
+  [min_sortie_jumps] S015 完成（15/15）
+[value_traces] 已完成 0，待算 30
+  [value_traces] ['S001', 'sorties_energy'] 完成（1/30）
+  [value_traces] ['S001', 'energy_sorties'] 完成（2/30）
+  [value_traces] ['S002', 'sorties_energy'] 完成（3/30）
+  [value_traces] ['S002', 'energy_sorties'] 完成（4/30）
+  [value_traces] ['S003', 'sorties_energy'] 完成（5/30）
+  [value_traces] ['S003', 'energy_sorties'] 完成（6/30）
+  [value_traces] ['S004', 'sorties_energy'] 完成（7/30）
+  [value_traces] ['S004', 'energy_sorties'] 完成（8/30）
+  [value_traces] ['S005', 'sorties_energy'] 完成（9/30）
+  [value_traces] ['S005', 'energy_sorties'] 完成（10/30）
+  [value_traces] ['S006', 'sorties_energy'] 完成（11/30）
+  [value_traces] ['S006', 'energy_sorties'] 完成（12/30）
+  [value_traces] ['S007', 'sorties_energy'] 完成（13/30）
+  [value_traces] ['S007', 'energy_sorties'] 完成（14/30）
+  [value_traces] ['S008', 'sorties_energy'] 完成（15/30）
+  [value_traces] ['S008', 'energy_sorties'] 完成（16/30）
+  [value_traces] ['S009', 'sorties_energy'] 完成（17/30）
+  [value_traces] ['S009', 'energy_sorties'] 完成（18/30）
+  [value_traces] ['S010', 'sorties_energy'] 完成（19/30）
+  [value_traces] ['S010', 'energy_sorties'] 完成（20/30）
+  [value_traces] ['S011', 'sorties_energy'] 完成（21/30）
+  [value_traces] ['S011', 'energy_sorties'] 完成（22/30）
+  [value_traces] ['S012', 'sorties_energy'] 完成（23/30）
+  [value_traces] ['S012', 'energy_sorties'] 完成（24/30）
+  [value_traces] ['S013', 'sorties_energy'] 完成（25/30）
+  [value_traces] ['S013', 'energy_sorties'] 完成（26/30）
+  [value_traces] ['S014', 'sorties_energy'] 完成（27/30）
+  [value_traces] ['S014', 'energy_sorties'] 完成（28/30）
+  [value_traces] ['S015', 'sorties_energy'] 完成（29/30）
+  [value_traces] ['S015', 'energy_sorties'] 完成（30/30）
+[grid_solutions] 已完成 0，待算 42
+  [grid_solutions] [0.2, 'sorties_energy'] 完成（1/42）
+  [grid_solutions] [0.2, 'energy_sorties'] 完成（2/42）
+  [grid_solutions] [0.21, 'sorties_energy'] 完成（3/42）
+  [grid_solutions] [0.21, 'energy_sorties'] 完成（4/42）
+  [grid_solutions] [0.22, 'sorties_energy'] 完成（5/42）
+  [grid_solutions] [0.22, 'energy_sorties'] 完成（6/42）
+  [grid_solutions] [0.23, 'sorties_energy'] 完成（7/42）
+  [grid_solutions] [0.23, 'energy_sorties'] 完成（8/42）
+  [grid_solutions] [0.24, 'sorties_energy'] 完成（9/42）
+  [grid_solutions] [0.24, 'energy_sorties'] 完成（10/42）
+  [grid_solutions] [0.25, 'sorties_energy'] 完成（11/42）
+  [grid_solutions] [0.25, 'energy_sorties'] 完成（12/42）
+  [grid_solutions] [0.26, 'sorties_energy'] 完成（13/42）
+  [grid_solutions] [0.26, 'energy_sorties'] 完成（14/42）
+  [grid_solutions] [0.27, 'sorties_energy'] 完成（15/42）
+  [grid_solutions] [0.27, 'energy_sorties'] 完成（16/42）
+  [grid_solutions] [0.28, 'sorties_energy'] 完成（17/42）
+  [grid_solutions] [0.28, 'energy_sorties'] 完成（18/42）
+  [grid_solutions] [0.29, 'sorties_energy'] 完成（19/42）
+  [grid_solutions] [0.29, 'energy_sorties'] 完成（20/42）
+  [grid_solutions] [0.3, 'sorties_energy'] 完成（21/42）
+  [grid_solutions] [0.3, 'energy_sorties'] 完成（22/42）
+  [grid_solutions] [0.31, 'sorties_energy'] 完成（23/42）
+  [grid_solutions] [0.31, 'energy_sorties'] 完成（24/42）
+  [grid_solutions] [0.32, 'sorties_energy'] 完成（25/42）
+  [grid_solutions] [0.32, 'energy_sorties'] 完成（26/42）
+  [grid_solutions] [0.33, 'sorties_energy'] 完成（27/42）
+  [grid_solutions] [0.33, 'energy_sorties'] 完成（28/42）
+  [grid_solutions] [0.34, 'sorties_energy'] 完成（29/42）
+  [grid_solutions] [0.34, 'energy_sorties'] 完成（30/42）
+  [grid_solutions] [0.35, 'sorties_energy'] 完成（31/42）
+  [grid_solutions] [0.35, 'energy_sorties'] 完成（32/42）
+  [grid_solutions] [0.36, 'sorties_energy'] 完成（33/42）
+  [grid_solutions] [0.36, 'energy_sorties'] 完成（34/42）
+  [grid_solutions] [0.37, 'sorties_energy'] 完成（35/42）
+  [grid_solutions] [0.37, 'energy_sorties'] 完成（36/42）
+  [grid_solutions] [0.38, 'sorties_energy'] 完成（37/42）
+  [grid_solutions] [0.38, 'energy_sorties'] 完成（38/42）
+  [grid_solutions] [0.39, 'sorties_energy'] 完成（39/42）
+  [grid_solutions] [0.39, 'energy_sorties'] 完成（40/42）
+  [grid_solutions] [0.4, 'sorties_energy'] 完成（41/42）
+  [grid_solutions] [0.4, 'energy_sorties'] 完成（42/42）
+完成，用时 1177.4 s

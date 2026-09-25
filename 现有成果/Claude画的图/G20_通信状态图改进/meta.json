@@ -1,0 +1,65 @@
+{
+  "figure_id": "图20（改进版）",
+  "stem": "fig_q3_communication",
+  "suggested_caption": "问题三各运输架次的实际通信状态（按开始时刻排列）",
+  "section": "8.6.3",
+  "files": {
+    "script": "fig_q3_communication.py",
+    "csv": "fig_q3_communication.csv",
+    "png": "fig_q3_communication.png",
+    "svg": "fig_q3_communication.svg"
+  },
+  "size_cm": [
+    15.5,
+    11.6
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    1370
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+  "sources": [
+    {
+      "path": "inputs/attachment/figures/src/fig_q3_communication.csv",
+      "sha256": "5d3d06a43b620cb98f2e1cae2a0e9b7f76dfa8bf147b15c9d6ad47cd5876f16d",
+      "sha256_repo": "396410de1845314755144bd209deff3605d14e895d4788120429ab9255c4df98",
+      "line_ending": "按 CRLF 计算"
+    }
+  ],
+  "key_values": {
+    "transports": 25,
+    "state_intervals": 525,
+    "direct_intervals": 365,
+    "relay_intervals": 160,
+    "order": [
+      "Q3-008",
+      "Q3-010",
+      "Q3-011",
+      "Q3-H2-2",
+      "Q3-001",
+      "Q3-002",
+      "Q3-003",
+      "Q3-G3-1",
+      "Q3-012",
+      "Q3-013",
+      "Q3-006",
+      "Q3-014",
+      "Q3-G2-2",
+      "Q3-009",
+      "Q3-H1-2",
+      "Q3-007",
+      "Q3-H2-1",
+      "Q3-H1-1",
+      "Q3-023",
+      "Q3-016",
+      "Q3-018",
+      "Q3-026",
+      "Q3-017",
+      "Q3-M002",
+      "Q3-G1-2"
+    ]
+  },
+  "notes": "色带为标称实际状态的开区间段，切换瞬时另按区间与边界证书判定（写入图题）。中继服务窗见图19，本图不再重复。"
+}

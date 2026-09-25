@@ -71,10 +71,21 @@ def main():
     (HERE / "q1_rho_reconcile.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
 
     sf, _ = global_min_sorties(scan["min_sortie_jumps"])
-    md = ["# F1 对账记录（待与 M2 正式重算结果核对）", "",
+    meta = fk.load_json(HERE / "meta.json") if (HERE / "meta.json").exists() else {}
+    fd = meta.get("key_values", {}).get("energy_minus_frozen_at_0.20_kWh", {})
+    md = ["# F1 对账记录（待与论文修改方按 M2 的重算结果核对）", "",
           "- 正式程序重算：`q1_rho_scan.py` 调用附件 `src/q1_engine.py`（q1_solve、candidates）与 `src/dcore.py`（Model.max_payload、leg）。",
           f"- 审核参照：`{out['reference']}`（SHA-256 `{out['reference_sha256']}`），只用于对账，不进入图中数据。",
           f"- 重算结果：`{out['formal_scan']}`（SHA-256 `{out['formal_scan_sha256']}`）。", "",
+          "## 0 扫描的修复与运行方式", "",
+          "- 原扫描在 r=0.30 处崩溃（多次超时）。原因：附件 q1_solve 内每次整数规划的时限固定为 60 s，原扫描用 6 个进程并行，"
+          "全模型（含 S001 的 18332 个候选）在 CPU 争用下超时而未返回解。附件程序未改动。",
+          "- 修复：扫描默认改为串行（`--jobs 1`），每完成一个作业写断点文件、中断后可续跑；每次求解检查全部阶段均为已证明最优"
+          "（HiGHS status=0，相对间隙不超过 1e-9 的舍入量级），否则重试，仍不满足即报错，绝不把超时记为不可行。",
+          "- 另修正一处分段缺口：逐服务区最优值分段须覆盖到 r=0.40（原逻辑在 S002 的最后一段 r≤0.398647 处停止，已改为继续求解到覆盖上限）。",
+          "- 运行：串行一次完成，共 42 次全模型求解与全部逐服务区求解，全部阶段已证明最优；两次运行（第一次在修正分段逻辑后补算 S002 一段）输出逐项相同。",
+          f"- 与冻结结果：r=0.20 时两种目标顺序的总架次、各站架次、机型与能耗与冻结 q1.json、q1_energy_first.json 相同，"
+          f"总能耗差分别为 {fd.get('sorties_energy', float('nan')):.1e}、{fd.get('energy_sorties', float('nan')):.1e} kWh（浮点舍入）。", "",
           "## 1 安全载荷（21 个余量 × 45 个组合）", "",
           f"- 比较 {n} 项；最大绝对差 {out['safe_payload']['max_abs_diff_kg']:.3e} kg（{out['safe_payload']['max_at']}）；"
           f"可达/不可达状态不一致 {len(status_mismatch)} 项。", "",

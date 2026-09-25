@@ -1,0 +1,310 @@
+{
+  "figure_id": "F1",
+  "stem": "fig_q1_rho",
+  "suggested_caption": "返航安全余量对安全载荷与组批结果的影响",
+  "section": "6.4",
+  "files": {
+    "script": "fig_q1_rho.py",
+    "csv": "fig_q1_rho.csv",
+    "png": "fig_q1_rho.png",
+    "svg": "fig_q1_rho.svg"
+  },
+  "size_cm": [
+    15.5,
+    9.4
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    1110
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+  "sources": [
+    {
+      "path": "F01_余量敏感性/q1_rho_scan.json",
+      "sha256": "24e54d183831ad5345eafb54e347dcdde8c936f4cce57228bcc64413e902b796",
+      "sha256_repo": "ab5698bfc152b59bbfae70ab43c9c111e3e38212f1402753b755c0dddff2f431",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/results/q1.json",
+      "sha256": "22124547a8a67f5e414eba18f03b6881d1da74530a7d3d9dce2ede1d229b1f08",
+      "sha256_repo": "77b17cbb30ca07d58e4e21bd2269722c2657352d8653b9e001eb197306984e41",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/results/q1_energy_first.json",
+      "sha256": "986ad1fd017ef9dc175e7349e9990c037b3ae0451c5108b24827065654ed846e",
+      "sha256_repo": "4c6ec8083c9a352dc2537524a55a2f73f01cb8e8f2d2a7829682058bbe943fd0",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/attachment/data/q1_safe_payload_rho020.csv",
+      "sha256": "21fe8f791e3498214d30089e2c17535d662d3fb873ee8152768d3e598f1a7826",
+      "sha256_repo": "480601894cb5b59a7d8d73a2cb3733a53ac53e04e980545520826aa596a33fab",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/attachment/src/q1_engine.py",
+      "sha256": "2ed5acf5931a930088f65b7efd3780a79ace251358b35c49e5e469c5fe95430f",
+      "sha256_repo": "4f82a297e7fa5ba9d075d20fc3325d6bbe2bbac2ecc06fc178b4215f64503a9e",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/attachment/src/dcore.py",
+      "sha256": "725eee10b593475a9c2a548a3bf60c6a56828478ddf661ffcdc3a80d7a3c7978",
+      "sha256_repo": "4fd14384cf70266ecae92d232d2be46b7e79315962606d81da15fd3512b4293f",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/attachment/data/original/数据/无人机应急物资运输基础数据/中继无人机数据.xlsx",
+      "sha256": "bc373197b27e9a9bb3eddd4c3b16187d2f3a9452e8fecf35139d63b30a4bc046"
+    },
+    {
+      "path": "inputs/attachment/data/original/数据/无人机应急物资运输基础数据/物资需求与配送时限.xlsx",
+      "sha256": "dbc170481b01bbdfec4de5dde7c3d3baa6856f4b10e915ef88e50d1f956fd4e8"
+    },
+    {
+      "path": "inputs/attachment/data/original/数据/无人机应急物资运输基础数据/调度中心与服务区.xlsx",
+      "sha256": "f45b968870a1ccb2d4cba73cbbfe790d4cf688a7414a3e4bda097156e6130e6b"
+    },
+    {
+      "path": "inputs/attachment/data/original/数据/无人机应急物资运输基础数据/运输无人机数据.xlsx",
+      "sha256": "e6f87c70774671fba0d85efb003a6827dc9c9e7b3542234bbccdf136a72350b2"
+    },
+    {
+      "path": "inputs/attachment/data/original/数据/无人机应急物资运输基础数据/通信链路参数.xlsx",
+      "sha256": "756aa18283d28604369326c4e90a00d76f4ab1d1a4c2b27e2408d6d81570bea6"
+    },
+    {
+      "path": "inputs/attachment/data/original/数据/镇龙乡地理空间数据/镇龙乡及周边地理数据/数字高程模型数据（DEM）/镇龙乡及周边30米DEM.tif",
+      "sha256": "741fe6de0b2bcaffd0f4007f574ee698d46197094f52cc954b532c4f90fc7c03"
+    }
+  ],
+  "key_values": {
+    "r_A_energy_limited_onset": {
+      "r": 0.24729100897210776,
+      "combo": "A-S008"
+    },
+    "min_sorties_18_until": 0.2308924838531774,
+    "single_trip_infeasible_after": 0.35267647349190634,
+    "min_sorties_function": [
+      [
+        0.2,
+        0.2308924838531774,
+        18
+      ],
+      [
+        0.2308924838531774,
+        0.27049741650420533,
+        19
+      ],
+      [
+        0.27049741650420533,
+        0.3362567058661652,
+        20
+      ],
+      [
+        0.3362567058661652,
+        0.3389233050976783,
+        21
+      ],
+      [
+        0.3389233050976783,
+        0.3437428683208703,
+        22
+      ],
+      [
+        0.3437428683208703,
+        0.34390361769385747,
+        23
+      ],
+      [
+        0.34390361769385747,
+        0.34777745189184783,
+        24
+      ],
+      [
+        0.34777745189184783,
+        0.35267647349190634,
+        25
+      ],
+      [
+        0.35267647349190634,
+        0.4,
+        null
+      ]
+    ],
+    "jumps_within_range": [
+      {
+        "after_r": 0.2308924838531774,
+        "site": "S004",
+        "from": 1,
+        "to": 2
+      },
+      {
+        "after_r": 0.27049741650420533,
+        "site": "S008",
+        "from": 1,
+        "to": 2
+      },
+      {
+        "after_r": 0.3362567058661652,
+        "site": "S008",
+        "from": 2,
+        "to": 3
+      },
+      {
+        "after_r": 0.3389233050976783,
+        "site": "S003",
+        "from": 2,
+        "to": 3
+      },
+      {
+        "after_r": 0.3437428683208703,
+        "site": "S004",
+        "from": 2,
+        "to": 3
+      },
+      {
+        "after_r": 0.34390361769385747,
+        "site": "S002",
+        "from": 2,
+        "to": 3
+      },
+      {
+        "after_r": 0.34777745189184783,
+        "site": "S008",
+        "from": 3,
+        "to": 4
+      },
+      {
+        "after_r": 0.35267647349190634,
+        "site": "S008",
+        "from": 4,
+        "to": null
+      },
+      {
+        "after_r": 0.3642062892570135,
+        "site": "S004",
+        "from": 3,
+        "to": 4
+      },
+      {
+        "after_r": 0.37330432633691346,
+        "site": "S004",
+        "from": 4,
+        "to": 5
+      },
+      {
+        "after_r": 0.37803399563515494,
+        "site": "S004",
+        "from": 5,
+        "to": null
+      },
+      {
+        "after_r": 0.3787050874611506,
+        "site": "S003",
+        "from": 3,
+        "to": 4
+      },
+      {
+        "after_r": 0.38276178041198583,
+        "site": "S002",
+        "from": 3,
+        "to": 4
+      },
+      {
+        "after_r": 0.38470256499265054,
+        "site": "S012",
+        "from": 1,
+        "to": 2
+      },
+      {
+        "after_r": 0.3914743059957566,
+        "site": "S003",
+        "from": 4,
+        "to": 5
+      },
+      {
+        "after_r": 0.39504812759323893,
+        "site": "S002",
+        "from": 4,
+        "to": 5
+      },
+      {
+        "after_r": 0.3952443597459503,
+        "site": "S003",
+        "from": 5,
+        "to": 6
+      },
+      {
+        "after_r": 0.3986473344549126,
+        "site": "S002",
+        "from": 5,
+        "to": 6
+      }
+    ],
+    "energy": {
+      "sorties_energy": {
+        "r_0.20": [
+          18,
+          59.13226032599276
+        ],
+        "last_feasible": [
+          0.35267647349190634
+        ],
+        "segments": 19
+      },
+      "energy_sorties": {
+        "r_0.20": [
+          19,
+          59.034877737802006
+        ],
+        "last_feasible": [
+          0.35267647349190634
+        ],
+        "segments": 13
+      }
+    },
+    "grid_points_cross_checked": 42,
+    "energy_minus_frozen_at_0.20_kWh": {
+      "sorties_energy": -1.4210854715202004e-14,
+      "energy_sorties": -1.4210854715202004e-14
+    },
+    "payload_at_0.20": {
+      "B-S008": 28.80136035691861,
+      "C-S002": 68.8581041072654,
+      "C-S003": 68.19954184603769,
+      "C-S004": 63.69825094910992,
+      "C-S008": 58.90416601183378,
+      "C-S012": 68.10974054874382
+    },
+    "energy_limited_combos": {
+      "0.20": 6,
+      "0.25": 11,
+      "0.30": 16,
+      "0.35": 18,
+      "0.40": 15
+    },
+    "unreachable_combos": {
+      "0.20": [],
+      "0.25": [],
+      "0.30": [],
+      "0.35": [
+        "A-S008"
+      ],
+      "0.40": [
+        "A-S002",
+        "A-S003",
+        "A-S004",
+        "A-S008",
+        "A-S012",
+        "C-S004",
+        "C-S008"
+      ]
+    }
+  },
+  "notes": "（待与 M2 正式重算结果核对）全部数值由附件正式程序重算：安全载荷用 Model.max_payload（60 次二分），跳变点在正式候选生成函数给出的全部候选返航荷电状态处调用 q1_solve 二分定位；能耗曲线为各服务区最优值精确分段之和。C-S002、C-S003、C-S012 三条曲线相距很近，用同一线型；各曲线以线型区分，见图例。"
+}

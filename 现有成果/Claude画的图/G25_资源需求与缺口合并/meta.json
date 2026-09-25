@@ -1,0 +1,114 @@
+{
+  "figure_id": "图25+图26（合并版）",
+  "stem": "q4_demand_gap",
+  "suggested_caption": "问题四各类资源的需求、库存与缺口（资源优先主方案，跨组中继整任务复制）",
+  "section": "9.4.2（原图25位置；原图26删除）",
+  "files": {
+    "script": "q4_demand_gap.py",
+    "csv": "q4_demand_gap.csv",
+    "png": "q4_demand_gap.png",
+    "svg": "q4_demand_gap.svg"
+  },
+  "size_cm": [
+    15.5,
+    7.6
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    897
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+  "sources": [
+    {
+      "path": "inputs/results/q4.json",
+      "sha256": "e74f46ea1561c98160fb04d67db38db977247a0ae647e52b4baf3ca22d55f090",
+      "sha256_repo": "8553e05b2e06228ed1a4b56b4643579d3c46f694dd7c9c518ebfa7c2cd0428af",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/attachment/figures/src/fig_q4_resources.csv",
+      "sha256": "ca45eb2f3beeed2ede98e57dab4c42f02802a9bb8cba80cf383e625f3ab6beeb",
+      "sha256_repo": "4e575cec076810ebb5e40583a51befb9b00bcc43387170ff4fcef9e1560f88b9",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/attachment/figures/fusion/q4_redundancy.csv",
+      "sha256": "df6736303685dc3061fe58235af25cec2f3ad0338662e6d781edabe942c9dec8",
+      "sha256_repo": "58ab07d897b8a6d2efe2c03a555eba79662e2610d7852d34de6a2e9894816f95",
+      "line_ending": "按 CRLF 计算"
+    }
+  ],
+  "key_values": {
+    "inventory": {
+      "drone_A": 4,
+      "drone_B": 2,
+      "drone_C": 2,
+      "battery_A": 6,
+      "battery_B": 4,
+      "battery_C": 4,
+      "relay": 2,
+      "component": 6
+    },
+    "demand": {
+      "不分区": {
+        "drone_A": 4,
+        "battery_A": 6,
+        "drone_B": 2,
+        "battery_B": 4,
+        "drone_C": 2,
+        "battery_C": 4,
+        "relay": 2,
+        "component": 4
+      },
+      "2组": {
+        "drone_A": 4,
+        "battery_A": 6,
+        "drone_B": 3,
+        "battery_B": 5,
+        "drone_C": 2,
+        "battery_C": 4,
+        "relay": 2,
+        "component": 4
+      },
+      "3组": {
+        "drone_A": 4,
+        "battery_A": 6,
+        "drone_B": 4,
+        "battery_B": 5,
+        "drone_C": 2,
+        "battery_C": 4,
+        "relay": 3,
+        "component": 5
+      }
+    },
+    "shortage_total": {
+      "2组": 2,
+      "3组": 4
+    },
+    "shortage": {
+      "2组": {
+        "drone_A": 0,
+        "battery_A": 0,
+        "drone_B": 1,
+        "battery_B": 1,
+        "drone_C": 0,
+        "battery_C": 0,
+        "relay": 0,
+        "component": 0
+      },
+      "3组": {
+        "drone_A": 0,
+        "battery_A": 0,
+        "drone_B": 2,
+        "battery_B": 1,
+        "drone_C": 0,
+        "battery_C": 0,
+        "relay": 1,
+        "component": 0
+      }
+    }
+  },
+  "notes": "柱高为总需求；斜线部分为超出库存的缺口，柱顶“+n”为缺口件数。中继组件库存为 6，3 组方案需求 5，有 1 件冗余但无缺口；B 型机与 B 型电池在 2 组方案中各缺 1 件，3 组方案中 B 型机缺 2、B 型电池缺 1、中继机缺 1。"
+}

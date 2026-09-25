@@ -33,7 +33,7 @@
     "ylabel_sorties": "最少架次",
     "ylabel_energy": "总能耗/kWh",
     "cap_line": "载重上限",
-    "a_onset": "A 型开始受电量限制",
+    "a_onset": "{combo} 开始受电量限制",
     "sorties_step": "最少架次（架次优先）",
     "energy_sf": "能耗：架次优先",
     "energy_ef": "能耗：能耗优先",
@@ -75,5 +75,64 @@
     "all": "不分区",
     "G1": "G1（除 S011 外）",
     "G2": "G2（S011）"
+  },
+  "F09": {
+    "xlabel": "缺口件数",
+    "ylabel": "分区方案数",
+    "total": "方案总数",
+    "main": "主口径（跨组中继复制）",
+    "min": "最小缺口",
+    "no_copy": "禁止复制口径"
+  },
+  "F10": {
+    "xlabel": "服务区（每站内按货箱编号排列）",
+    "ylabel": "送达时刻/s",
+    "q2": "问题二送达",
+    "q3": "问题三送达",
+    "expected": "期望送达时刻",
+    "hard": "硬截止",
+    "wavg": "加权平均",
+    "over": "期望时刻大于 {y} s"
+  },
+  "F07": {
+    "xlabel": "自任务准备开始的时间/s",
+    "phase": "作业阶段",
+    "prep": "准备",
+    "load": "装载",
+    "climb": "爬升",
+    "cruise": "巡航",
+    "descend": "下降",
+    "handover": "交接",
+    "return": "返航",
+    "out": "去程",
+    "link": "建链",
+    "service": "服务",
+    "flight": "飞行",
+    "charge": "充电",
+    "turn": "周转 300 s",
+    "drone_C": "C 型无人机",
+    "battery_C": "C 型电池",
+    "entity": "中继实体",
+    "component": "能源组件",
+    "occ_C": "运输机与电池占用",
+    "occ_R": "中继实体与组件占用",
+    "return_at": "返航时刻",
+    "entity_ready": "实体再可用"
+  },
+  "F08": {
+    "main": "跨组中继整任务复制",
+    "no_copy": "禁止复制",
+    "units": "个单元",
+    "same_sortie": "同一架次访问",
+    "shared_relay": "中继悬停点与实际保障",
+    "backup": "仅备用保障",
+    "multi_unit": "多服务区单元"
+  },
+  "F06": {
+    "clear": "通视，可直连",
+    "near": "遮挡，但距离近仍可直连",
+    "none": "不可直连",
+    "relay": "中继悬停点与回传",
+    "outside": "（在图幅外）"
   }
 }

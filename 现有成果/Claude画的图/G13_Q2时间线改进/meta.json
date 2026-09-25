@@ -1,0 +1,46 @@
+{
+  "figure_id": "图13（改进版）",
+  "stem": "fig_q2_timeline",
+  "suggested_caption": "问题二运输实体的任务占用及返航时刻（编号省略“Q2-”；色带为准备开始至返航，不含电池充电）",
+  "section": "7.5",
+  "files": {
+    "script": "fig_q2_timeline.py",
+    "csv": "fig_q2_timeline.csv",
+    "png": "fig_q2_timeline.png",
+    "svg": "fig_q2_timeline.svg"
+  },
+  "size_cm": [
+    15.5,
+    7.4
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    874
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+  "sources": [
+    {
+      "path": "inputs/attachment/figures/src/fig_q2_timeline.csv",
+      "sha256": "abea00b24e36a619f14dac84eb9a611ea9593daf60ef194ec6a41dd88d59784d",
+      "sha256_repo": "1b230bf540afdef1eeb34d21555c5aac0c9db5a1126e4fd8745258beadae471f",
+      "line_ending": "按 CRLF 计算"
+    }
+  ],
+  "key_values": {
+    "tasks": 24,
+    "entities": [
+      "U01",
+      "U02",
+      "U03",
+      "U04",
+      "U05",
+      "U06",
+      "U07",
+      "U08"
+    ],
+    "makespan_s": 6181.988277110899
+  },
+  "notes": "与原图相比只删去图内标题和注释，数据与画法不变。"
+}

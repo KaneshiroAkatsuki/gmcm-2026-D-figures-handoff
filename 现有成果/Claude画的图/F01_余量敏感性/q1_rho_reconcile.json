@@ -1,0 +1,481 @@
+{
+ "reference": "inputs/review_ref/q1_rho.json",
+ "reference_sha256": "a31e23a9a2397434b1b984dc93222cb1794f5a84516490a6ce8af1ea41b8ba3a",
+ "formal_scan": "F01_余量敏感性/q1_rho_scan.json",
+ "formal_scan_sha256": "ab5698bfc152b59bbfae70ab43c9c111e3e38212f1402753b755c0dddff2f431",
+ "safe_payload": {
+  "compared": 945,
+  "max_abs_diff_kg": 1.2612133559741778e-13,
+  "max_at": [
+   "0.39",
+   "C-S004"
+  ],
+  "status_mismatch": []
+ },
+ "jumps": {
+  "per_site": [
+   {
+    "site": "S001",
+    "formal": 0,
+    "reference": 0,
+    "max_abs_diff": 0.0,
+    "same_steps": true
+   },
+   {
+    "site": "S002",
+    "formal": 5,
+    "reference": 5,
+    "max_abs_diff": 0.0,
+    "same_steps": true
+   },
+   {
+    "site": "S003",
+    "formal": 5,
+    "reference": 5,
+    "max_abs_diff": 0.0,
+    "same_steps": true
+   },
+   {
+    "site": "S004",
+    "formal": 5,
+    "reference": 5,
+    "max_abs_diff": 2.220446049250313e-16,
+    "same_steps": true
+   },
+   {
+    "site": "S005",
+    "formal": 0,
+    "reference": 0,
+    "max_abs_diff": 0.0,
+    "same_steps": true
+   },
+   {
+    "site": "S006",
+    "formal": 0,
+    "reference": 0,
+    "max_abs_diff": 0.0,
+    "same_steps": true
+   },
+   {
+    "site": "S007",
+    "formal": 0,
+    "reference": 0,
+    "max_abs_diff": 0.0,
+    "same_steps": true
+   },
+   {
+    "site": "S008",
+    "formal": 4,
+    "reference": 4,
+    "max_abs_diff": 1.1102230246251565e-16,
+    "same_steps": true
+   },
+   {
+    "site": "S009",
+    "formal": 0,
+    "reference": 0,
+    "max_abs_diff": 0.0,
+    "same_steps": true
+   },
+   {
+    "site": "S010",
+    "formal": 0,
+    "reference": 0,
+    "max_abs_diff": 0.0,
+    "same_steps": true
+   },
+   {
+    "site": "S011",
+    "formal": 0,
+    "reference": 0,
+    "max_abs_diff": 0.0,
+    "same_steps": true
+   },
+   {
+    "site": "S012",
+    "formal": 2,
+    "reference": 2,
+    "max_abs_diff": 0.0,
+    "same_steps": true
+   },
+   {
+    "site": "S013",
+    "formal": 0,
+    "reference": 0,
+    "max_abs_diff": 0.0,
+    "same_steps": true
+   },
+   {
+    "site": "S014",
+    "formal": 0,
+    "reference": 0,
+    "max_abs_diff": 0.0,
+    "same_steps": true
+   },
+   {
+    "site": "S015",
+    "formal": 0,
+    "reference": 0,
+    "max_abs_diff": 0.0,
+    "same_steps": true
+   }
+  ],
+  "max_abs_diff": 2.220446049250313e-16,
+  "all_same": true
+ },
+ "optima": {
+  "rows": [
+   {
+    "r": "0.2",
+    "order": "sorties_first",
+    "formal": [
+     18,
+     59.13226032599276
+    ],
+    "reference": [
+     18,
+     59.132260325992775
+    ],
+    "match": true,
+    "energy_diff": 1.4210854715202004e-14
+   },
+   {
+    "r": "0.2",
+    "order": "energy_first",
+    "formal": [
+     19,
+     59.034877737802006
+    ],
+    "reference": [
+     19,
+     59.03487773780202
+    ],
+    "match": true,
+    "energy_diff": 1.4210854715202004e-14
+   },
+   {
+    "r": "0.23",
+    "order": "sorties_first",
+    "formal": [
+     18,
+     59.13226032599276
+    ],
+    "reference": [
+     18,
+     59.132260325992775
+    ],
+    "match": true,
+    "energy_diff": 1.4210854715202004e-14
+   },
+   {
+    "r": "0.23",
+    "order": "energy_first",
+    "formal": [
+     19,
+     59.034877737802006
+    ],
+    "reference": [
+     19,
+     59.03487773780202
+    ],
+    "match": true,
+    "energy_diff": 1.4210854715202004e-14
+   },
+   {
+    "r": "0.2309",
+    "order": "sorties_first",
+    "formal": [
+     19,
+     61.07431115757808
+    ],
+    "reference": [
+     19,
+     61.07431115757808
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.2309",
+    "order": "energy_first",
+    "formal": [
+     21,
+     60.867693783930676
+    ],
+    "reference": [
+     21,
+     60.867693783930676
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.231",
+    "order": "sorties_first",
+    "formal": [
+     19,
+     61.07431115757808
+    ],
+    "reference": [
+     19,
+     61.07431115757808
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.231",
+    "order": "energy_first",
+    "formal": [
+     21,
+     60.867693783930676
+    ],
+    "reference": [
+     21,
+     60.867693783930676
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.24",
+    "order": "sorties_first",
+    "formal": [
+     19,
+     61.07431115757808
+    ],
+    "reference": [
+     19,
+     61.07431115757808
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.24",
+    "order": "energy_first",
+    "formal": [
+     21,
+     60.867693783930676
+    ],
+    "reference": [
+     21,
+     60.867693783930676
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.25",
+    "order": "sorties_first",
+    "formal": [
+     19,
+     61.07431115757808
+    ],
+    "reference": [
+     19,
+     61.07431115757808
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.25",
+    "order": "energy_first",
+    "formal": [
+     21,
+     60.867693783930676
+    ],
+    "reference": [
+     21,
+     60.867693783930676
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.26",
+    "order": "sorties_first",
+    "formal": [
+     19,
+     61.07431115757808
+    ],
+    "reference": [
+     19,
+     61.07431115757808
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.26",
+    "order": "energy_first",
+    "formal": [
+     20,
+     60.96507637212143
+    ],
+    "reference": [
+     20,
+     60.96507637212143
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.27",
+    "order": "sorties_first",
+    "formal": [
+     19,
+     61.07431115757808
+    ],
+    "reference": [
+     19,
+     61.07431115757808
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.27",
+    "order": "energy_first",
+    "formal": [
+     20,
+     60.96507637212143
+    ],
+    "reference": [
+     20,
+     60.96507637212143
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.28",
+    "order": "sorties_first",
+    "formal": [
+     20,
+     65.24374637868848
+    ],
+    "reference": [
+     20,
+     65.24374637868848
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.28",
+    "order": "energy_first",
+    "formal": [
+     24,
+     64.82333709885954
+    ],
+    "reference": [
+     24,
+     64.82333709885953
+    ],
+    "match": true,
+    "energy_diff": 1.4210854715202004e-14
+   },
+   {
+    "r": "0.3",
+    "order": "sorties_first",
+    "formal": [
+     20,
+     67.2287315236232
+    ],
+    "reference": [
+     20,
+     67.2287315236232
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.3",
+    "order": "energy_first",
+    "formal": [
+     26,
+     66.51948760190815
+    ],
+    "reference": [
+     26,
+     66.51948760190815
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.32",
+    "order": "sorties_first",
+    "formal": [
+     20,
+     69.42494596240098
+    ],
+    "reference": [
+     20,
+     69.424945962401
+    ],
+    "match": true,
+    "energy_diff": 1.4210854715202004e-14
+   },
+   {
+    "r": "0.32",
+    "order": "energy_first",
+    "formal": [
+     26,
+     68.62091344772512
+    ],
+    "reference": [
+     26,
+     68.62091344772512
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.35",
+    "order": "sorties_first",
+    "formal": [
+     25,
+     75.60892914897875
+    ],
+    "reference": [
+     25,
+     75.60892914897875
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.35",
+    "order": "energy_first",
+    "formal": [
+     30,
+     74.90069189345608
+    ],
+    "reference": [
+     30,
+     74.90069189345608
+    ],
+    "match": true,
+    "energy_diff": 0.0
+   },
+   {
+    "r": "0.4",
+    "order": "sorties_first",
+    "formal": null,
+    "reference": null,
+    "match": true
+   },
+   {
+    "r": "0.4",
+    "order": "energy_first",
+    "formal": null,
+    "reference": null,
+    "match": true
+   }
+  ],
+  "all_match": true
+ }
+}

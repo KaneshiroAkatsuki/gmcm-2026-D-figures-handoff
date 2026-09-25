@@ -1,0 +1,72 @@
+{
+  "figure_id": "图24（改进版）",
+  "stem": "fig_q4_partition",
+  "suggested_caption": "问题四的分区方案：(a)(b) 跨组中继整任务复制的两组、三组主方案；(c) 禁止复制的三组对照",
+  "section": "9.4.2",
+  "files": {
+    "script": "fig_q4_partition.py",
+    "csv": "fig_q4_partition.csv",
+    "png": "fig_q4_partition.png",
+    "svg": "fig_q4_partition.svg"
+  },
+  "size_cm": [
+    15.5,
+    12.4
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    1464
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+  "sources": [
+    {
+      "path": "inputs/attachment/figures/src/fig_q4_partition.csv",
+      "sha256": "a064d32187e35b2493b5e1ce7ea1000b237e90738a4f8129c3423c63a2a657db",
+      "sha256_repo": "812988937d4c11c447ba4f3c833eefbb449c78c9ceb355bcc11d526cfe152438",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/results/q4.json",
+      "sha256": "e74f46ea1561c98160fb04d67db38db977247a0ae647e52b4baf3ca22d55f090",
+      "sha256_repo": "8553e05b2e06228ed1a4b56b4643579d3c46f694dd7c9c518ebfa7c2cd0428af",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/results/q4_no_copy_sensitivity.json",
+      "sha256": "b515395d81cd81f607f2c5a39a7a55be5b78edc28a65f025538cd677b1d611f3",
+      "sha256_repo": "90636023b4a0847d88f8a2648785ac9b68c37b77d3efc712816284cdde14b7a8",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/results/q3.json",
+      "sha256": "d19baf7f2faad5eac7bf481804aa266cf096723d667764acb9e687f781db96d3",
+      "sha256_repo": "ab9662042a106d8c8a91ec7589899b04d9f2f10802305cb0a8fa6ffaa935d883",
+      "line_ending": "按 CRLF 计算"
+    }
+  ],
+  "key_values": {
+    "(a)": {
+      "K": 2,
+      "shortage_total": 2,
+      "copied_relays": {}
+    },
+    "(b)": {
+      "K": 3,
+      "shortage_total": 4,
+      "copied_relays": {
+        "R-001": [
+          "G1",
+          "G3"
+        ]
+      }
+    },
+    "(c)": {
+      "K": 3,
+      "shortage_total": 6,
+      "copied_relays": {}
+    }
+  },
+  "notes": "各子图组色按组成员统一（组号保持原结果）；凸包底色表示同组服务区；三角为在两个组中各保留一份的中继任务。"
+}

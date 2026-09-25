@@ -5,7 +5,7 @@
     竖线为 A 型首次受电量限制的余量。
 (b) 最少架次的阶梯线（全部跳变点为精确值）；副轴为两种目标顺序的总能耗（逐服务区精确分段求和）。
     阴影为单点往返已无法送完全部货箱的余量区间。
-绘图前核对：r=0.20 的结果与冻结 results/q1.json、q1_energy_first.json 一致；网格点上完整求解与分段结果一致；
+绘图前核对：r=0.20 的结果与冻结 results/q1.json、q1_energy_first.json 一致（架次相同，能耗差只允许浮点舍入量级，差值写入 meta）；网格点上完整求解与分段结果一致；
 由跳变点得到的最少架次与架次优先分段结果一致。
 """
 import sys
@@ -25,6 +25,8 @@ FOCUS = ["B-S008", "C-S002", "C-S003", "C-S004", "C-S008", "C-S012"]
 BUNDLE = ["C-S002", "C-S003", "C-S012"]
 E_COL = {"sorties_energy": "#3D697A", "energy_sorties": "#CB8E3C"}
 E_LS = {"sorties_energy": (0, (5, 2)), "energy_sorties": (0, (1.5, 1.2))}
+CURVE_LS = {"B-S008": (0, (5, 1.5)), "C-S002": "-", "C-S003": "-", "C-S012": "-", "C-S004": (0, (6, 1.5, 1.5, 1.5)),
+            "C-S008": (0, (1.2, 1.2))}
 
 
 def global_min_sorties(jumps):
@@ -108,9 +110,11 @@ def main():
     grid = {(g["rho"], g["priority"]): g for g in scan["grid_solutions"]}
     g0, g0e = grid[(0.2, "sorties_energy")], grid[(0.2, "energy_sorties")]
     assert g0["metrics"]["sorties"] == q1["metrics"]["sorties"] == 18
-    assert g0["metrics"]["energy"] == q1["metrics"]["energy"]
+    frozen_diff = {"sorties_energy": g0["metrics"]["energy"] - q1["metrics"]["energy"]}
+    assert abs(frozen_diff["sorties_energy"]) < 1e-9
     assert g0e["metrics"]["sorties"] == q1e["metrics"]["sorties"] == 19
-    assert g0e["metrics"]["energy"] == q1e["metrics"]["energy"]
+    frozen_diff["energy_sorties"] = g0e["metrics"]["energy"] - q1e["metrics"]["energy"]
+    assert abs(frozen_diff["energy_sorties"]) < 1e-9
     base_csv = fk.ATTACH / "data" / "q1_safe_payload_rho020.csv"
     sorties_fn, events = global_min_sorties(scan["min_sortie_jumps"])
     tr = {p: global_trace(scan["value_traces"], p) for p in ["sorties_energy", "energy_sorties"]}
@@ -132,8 +136,8 @@ def main():
     step18 = next(hi for lo, hi, n in sorties_fn if n == 18)
 
     # ---------- 绘图 ----------
-    fig, (axa, axb) = plt.subplots(1, 2, figsize=(fk.FULL_W, 8.2 * fk.CM), layout="constrained")
-    fig.get_layout_engine().set(wspace=0.08)
+    fig, (axa, axb) = plt.subplots(1, 2, figsize=(fk.FULL_W, 9.4 * fk.CM), layout="constrained")
+    fig.get_layout_engine().set(wspace=0.10)
     rs = sorted(float(k) for k in pay["fine"])
     rows = []
     for combo in FOCUS:
@@ -146,34 +150,19 @@ def main():
             ys.append(v["payload"])
             rows.append({"panel": "a", "series": combo, "r": r, "value": v["payload"], "status": v["status"]})
         g = combo[0]
-        axa.plot(xs, ys, color=fk.C[g], lw=1.5 if combo not in BUNDLE else 1.1, zorder=3,
-                 ls="-" if g == "C" else (0, (5, 1.5)))
+        axa.plot(xs, ys, color=fk.C[g], lw=1.5 if combo not in BUNDLE else 1.1, zorder=3, ls=CURVE_LS[combo])
     for g, cap in [("A", 25), ("B", 30), ("C", 80)]:
         assert all(v["capacity"] == cap for k, v in crit.items() if k.startswith(g + "-"))
         axa.axhline(cap, color=fk.C[g], lw=0.8, ls=(0, (1.5, 1.5)), zorder=2)
-    axa.text(R1, 80.8, f"C 型{L['F01']['cap_line']} 80 kg", ha="right", va="bottom", fontsize=10, color=fk.C["C"])
-    axa.text(R1, 30.6, f"B 型{L['F01']['cap_line']} 30 kg", ha="right", va="bottom", fontsize=10, color=fk.C["B"])
-    axa.text(R1, 24.4, f"A 型{L['F01']['cap_line']} 25 kg", ha="right", va="top", fontsize=10, color=fk.C["A"])
+    for g, cap, dy in [("C", 80, 0), ("B", 30, 1.2), ("A", 25, -1.2)]:
+        axa.text(R1 + 0.004, cap + dy, f"{g} {cap}", ha="left", va="center", fontsize=10, color=fk.C[g], clip_on=False)
     axa.plot([a_on[0], a_on[0]], [0, 25], color=fk.C["A"], lw=1.0, ls=(0, (4, 2)), zorder=2)
-    axa.annotate(f"{L['F01']['a_onset']}\n{fk.labels()['sym']['r']}={a_on[0]:.6f}（{a_on[1][2:]}）",
-                 (a_on[0], 12), xytext=(a_on[0] - 0.004, 5.5), fontsize=10, ha="right", va="center",
-                 color=fk.C["A"], linespacing=1.2)
+    axa.text(a_on[0] + 0.003, 5.0, f"{fk.labels()['sym']['r']}={a_on[0]:.6f}",
+             fontsize=10, ha="left", va="center", color=fk.C["A"], linespacing=1.2)
     axa.axhline(14, color=fk.C["muted"], lw=0.7, ls=(0, (3, 2)), zorder=1)
-    axa.text(R0 + 0.003, 14.5, "单箱饮用水 14 kg", fontsize=10, color=fk.C["muted"], va="bottom")
+    axa.text(R0 + 0.003, 14.6, "单箱饮用水 14 kg", fontsize=10, color=fk.C["muted"], va="bottom",
+             bbox=dict(boxstyle="round,pad=0.08", fc="white", ec="none", alpha=0.8), zorder=4)
     axa.axvspan(r_inf, R1, color="#E6E9EC", zorder=0, lw=0, hatch="///", ec="#C3CAD0")
-    # 直接标注曲线
-    def end_of(combo):
-        pts = [(r, pay["fine"][f"{r:.4f}"][combo]["payload"]) for r in rs
-               if pay["fine"][f"{r:.4f}"][combo]["payload"] is not None]
-        return pts
-    lab_pos = {"C-S004": (0.315, None), "C-S008": (0.285, None), "B-S008": (0.27, None)}
-    for combo, (rx, _) in lab_pos.items():
-        y = pay["fine"][f"{rx:.4f}"][combo]["payload"]
-        axa.annotate(combo, (rx, y), xytext=(-4, -4), textcoords="offset points", ha="right", va="top",
-                     fontsize=10, color=fk.C[combo[0]])
-    yb = pay["fine"]["0.3400"]["C-S002"]["payload"]
-    axa.annotate("C-S002、S003、S012", (0.34, yb), xytext=(3, 5), textcoords="offset points", ha="left",
-                 va="bottom", fontsize=10, color=fk.C["C"])
     axa.set_xlim(R0, R1)
     axa.set_ylim(0, 88)
     axa.xaxis.set_major_locator(MultipleLocator(0.05))
@@ -196,12 +185,13 @@ def main():
     axb.text((r_inf + R1) / 2, 17.2, L["F01"]["infeasible"], ha="center", va="bottom", fontsize=10,
              rotation=90, color=fk.C["muted"])
     axb.scatter([step18], [18], s=26, color=fk.C["inventory"], zorder=6)
-    axb.annotate(f"{fk.labels()['sym']['r']}={step18:.6f}", (step18, 18), xytext=(8, -14), textcoords="offset points",
+    axb.annotate(f"{fk.labels()['sym']['r']}={step18:.6f}", (step18, 18), xytext=(7, -4), textcoords="offset points",
                  fontsize=10, color=fk.C["inventory"], va="top")
     for lo, hi, n in sorties_fn:
         if n in (18, 19, 20):
             axb.text((lo + hi) / 2, n + 0.25, str(n), ha="center", va="bottom", fontsize=10)
-    axb.text(0.3435, 25.3, "21～25", ha="center", va="bottom", fontsize=10)
+    axb.annotate("21～25", (0.3425, 23.0), xytext=(0.305, 26.6), ha="center", va="center", fontsize=10,
+                 arrowprops=dict(arrowstyle="-", lw=0.6, color=fk.C["muted"], shrinkA=2, shrinkB=2))
     axb.set_xlim(R0, R1)
     axb.set_ylim(16.5, 28.5)
     axb.yaxis.set_major_locator(MultipleLocator(2))
@@ -231,11 +221,15 @@ def main():
     fk.panel_label(axa, "(a)", x=-0.02, y=1.01)
     fk.panel_label(axb, "(b)", x=-0.02, y=1.01)
 
-    handles = [Line2D([], [], color=fk.C["B"], lw=1.5, ls=(0, (5, 1.5)), label="B 型安全载荷"),
-               Line2D([], [], color=fk.C["C"], lw=1.5, label="C 型安全载荷"),
+    handles = [Line2D([], [], color=fk.C["B"], lw=1.5, ls=CURVE_LS["B-S008"], label="B-S008"),
+               Line2D([], [], color=fk.C["C"], lw=1.1, ls="-", label="C-S002、S003、S012"),
+               Line2D([], [], color=fk.C["C"], lw=1.5, ls=CURVE_LS["C-S004"], label="C-S004"),
+               Line2D([], [], color=fk.C["C"], lw=1.5, ls=CURVE_LS["C-S008"], label="C-S008"),
                Line2D([], [], color=fk.C["ink"], lw=1.6, label=L["F01"]["sorties_step"]),
                Line2D([], [], color=E_COL["sorties_energy"], lw=1.4, ls=E_LS["sorties_energy"], label=L["F01"]["energy_sf"]),
                Line2D([], [], color=E_COL["energy_sorties"], lw=1.4, ls=E_LS["energy_sorties"], label=L["F01"]["energy_ef"]),
+               Line2D([], [], color=fk.C["muted"], lw=0.8, ls=(0, (1.5, 1.5)), label="载重上限（右端数值，色同机型）"),
+               Line2D([], [], color=fk.C["A"], lw=1.0, ls=(0, (4, 2)), label=L["F01"]["a_onset"].format(combo=a_on[1])),
                Patch(fc="#E6E9EC", ec="#C3CAD0", hatch="///", label=L["F01"]["infeasible"])]
     fig.legend(handles=handles, loc="outside lower center", ncol=3, columnspacing=1.2, handletextpad=0.4)
 
@@ -252,6 +246,7 @@ def main():
                         "jumps_within_range": jump_list,
                         "energy": ekv,
                         "grid_points_cross_checked": checked,
+                        "energy_minus_frozen_at_0.20_kWh": frozen_diff,
                         "payload_at_0.20": {k: pay["grid"]["0.20"][k]["payload"] for k in FOCUS},
                         "energy_limited_combos": {r: sum(1 for k, v in crit.items()
                                                          if v["r_energy_limited_above"] < float(r) <= v["r_unreachable_above"])
@@ -260,7 +255,7 @@ def main():
                                                for r in ["0.20", "0.25", "0.30", "0.35", "0.40"]}},
             notes="（待与 M2 正式重算结果核对）全部数值由附件正式程序重算：安全载荷用 Model.max_payload（60 次二分），"
                   "跳变点在正式候选生成函数给出的全部候选返航荷电状态处调用 q1_solve 二分定位；能耗曲线为各服务区最优值精确分段之和。"
-                  "C-S002、C-S003、C-S012 三条曲线相距很近，合并标注。")
+                  "C-S002、C-S003、C-S012 三条曲线相距很近，用同一线型；各曲线以线型区分，见图例。")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,79 @@
+{
+  "figure_id": "F7",
+  "stem": "fig_sortie_timeline",
+  "suggested_caption": "单架次时间构成：(a) 运输架次 Q1-001；(b) 中继任务 R-002",
+  "section": "5.4.1（同时替代 5.3.4 的表5）",
+  "files": {
+    "script": "fig_sortie_timeline.py",
+    "csv": "fig_sortie_timeline.csv",
+    "png": "fig_sortie_timeline.png",
+    "svg": "fig_sortie_timeline.svg"
+  },
+  "size_cm": [
+    15.5,
+    11.0
+  ],
+  "dpi": 300,
+  "pixel_size": [
+    1830,
+    1299
+  ],
+  "min_font_pt": 10.0,
+  "fonts": "替代字体：中文 Noto Serif CJK SC（宋体类），英文与数字 Liberation Serif（与 Times New Roman 等宽），记号 STIX；在装有宋体与 Times New Roman 的环境中运行同一程序即得正式字体版本",
+  "sources": [
+    {
+      "path": "inputs/results/q1.json",
+      "sha256": "22124547a8a67f5e414eba18f03b6881d1da74530a7d3d9dce2ede1d229b1f08",
+      "sha256_repo": "77b17cbb30ca07d58e4e21bd2269722c2657352d8653b9e001eb197306984e41",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/results/q3.json",
+      "sha256": "d19baf7f2faad5eac7bf481804aa266cf096723d667764acb9e687f781db96d3",
+      "sha256_repo": "ab9662042a106d8c8a91ec7589899b04d9f2f10802305cb0a8fa6ffaa935d883",
+      "line_ending": "按 CRLF 计算"
+    },
+    {
+      "path": "inputs/raw/无人机应急物资运输基础数据/运输无人机数据.xlsx",
+      "sha256": "9296a657c07e042afba6aeea7999665d9cd24e00b592fd6c269de6e338480dcb"
+    },
+    {
+      "path": "inputs/raw/无人机应急物资运输基础数据/中继无人机数据.xlsx",
+      "sha256": "be52643ff29419233e6a141dca03a04160a8af551cab36d8c49b51bb836bea04"
+    }
+  ],
+  "key_values": {
+    "Q1-001": {
+      "prep_s": 300.0,
+      "load_s": 210.0,
+      "climb_cruise_descend_s": [
+        58.142644042968755,
+        203.60157383433182,
+        44.52830505371094
+      ],
+      "handover_s": 432.0,
+      "return_s": 311.9025229310114,
+      "duration_s": 1560.175045862023,
+      "flight_time_s": 618.175045862023,
+      "soc": 0.6255280243869162,
+      "charge_s": 1644.6892804950148,
+      "battery_full_at_s": 3204.8643263570375
+    },
+    "R-002": {
+      "start_abs_s": 2396.4226962244925,
+      "prep_s": 180.0,
+      "flight_out_s": 341.0071303916059,
+      "link_s": 30.0,
+      "service_s": 3294.54246017454,
+      "flight_back_s": 380.1405746054731,
+      "turnaround_s": 300.0,
+      "soc": 0.6248609834455029,
+      "charge_s": 987.6807215208463,
+      "return_rel_s": 4225.69016517162,
+      "entity_ready_rel_s": 4525.69016517162,
+      "component_ready_rel_s": 5513.370886692466,
+      "component_ready_abs_s": 7909.793582916958
+    }
+  },
+  "notes": "时间以任务准备开始为 0（R-002 的绝对开始时刻为 2396.423 s）。实心条为实体或能源占用，紫色浅条为中继返航后的 300 s 周转，斜线条为按式(15)计算的充电尾段；Q1-001 电池返航即开始充电，R-002 的能源组件在周转结束后开始充电。"
+}
